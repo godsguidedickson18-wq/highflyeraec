@@ -1,0 +1,37 @@
+# =====================================================
+# Highflyer Adult Education Centre
+# GitHub Pages Configuration
+# =====================================================
+
+# Site identity
+title: "Highflyer Adult Education Centre"
+description: "Free adult literacy classes in Port Harcourt, Rivers State. Learn to read, write and communicate with confidence. Beginners, Intermediate and Advanced classes. Enrol today."
+url: "https://highflyeraec.github.io"
+baseurl: ""
+
+# Author
+author:
+  name: "Highflyer Adult Education Centre"
+  email: "hello@highflyeraec.org"
+
+# Language & locale
+lang: en-NG
+timezone: Africa/Lagos
+
+# Build settings — pure HTML, disable Jekyll processing on main file
+plugins: []
+exclude:
+  - README.md
+  - "*.sh"
+  - ".gitignore"
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: null
+
+# SEO
+google_analytics: ""   # Add your GA4 measurement ID here: G-XXXXXXXXXX
+

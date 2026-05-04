@@ -1,0 +1,1557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Highflyer Adult Education Centre | Port Harcourt</title>
+<meta name="description" content="Highflyer Adult Education Centre offers affordable adult literacy classes in Port Harcourt, Rivers State. Learn to read, write and communicate confidently. Enquire today."/>
+<meta name="theme-color" content="#0f2347"/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%230f2347'/><text y='72' x='50' text-anchor='middle' font-size='58' font-family='Georgia,serif' font-weight='900' fill='%23e8a020'>H</text></svg>"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,800;1,400&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --blue:#1a3a6b;--blue-dk:#0f2347;--blue-lt:#2a5298;
+  --gold:#e8a020;--gold-lt:#f5c55a;--gold-pale:#fff8ee;
+  --green:#2e7d52;--green-dk:#1a5c37;
+  --cream:#fdf8f0;--cream-dk:#f5ede0;
+  --charcoal:#1f1f1f;--muted:#5a5a5a;--border:#e2d9c8;
+  --shadow:0 4px 24px rgba(26,58,107,.10);
+  --shadow-lg:0 10px 48px rgba(26,58,107,.16);
+  --rad:16px;--rad-sm:10px;
+  --head:'Playfair Display',Georgia,serif;
+  --body:'Nunito','Segoe UI',sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:17px}
+body{font-family:var(--body);background:var(--cream);color:var(--charcoal);line-height:1.8;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}a{text-decoration:none;color:inherit}ul{list-style:none}
+button{cursor:pointer;font-family:var(--body);border:none;background:none}
+input,select,textarea{font-family:var(--body)}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:4px}
+
+/* PAGE SYSTEM */
+.page{display:none;min-height:100vh}
+.page.active{display:block;animation:fadeUp .4s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+
+/* TOAST */
+.toast{position:fixed;bottom:90px;right:22px;z-index:9000;background:var(--blue-dk);color:#fff;
+  padding:14px 22px;border-radius:var(--rad-sm);font-size:.88rem;font-weight:700;
+  box-shadow:var(--shadow-lg);max-width:320px;transform:translateX(140%);
+  transition:transform .4s cubic-bezier(.34,1.56,.64,1);border-left:4px solid var(--gold)}
+.toast.on{transform:translateX(0)}
+
+/* WHATSAPP */
+.wa{position:fixed;bottom:22px;right:22px;z-index:8000;background:#25D366;color:#fff;
+  width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:26px;box-shadow:0 6px 26px rgba(37,211,102,.45);cursor:pointer;
+  animation:waPulse 2.5s ease infinite;transition:transform .25s}
+.wa:hover{transform:scale(1.12)}
+@keyframes waPulse{0%,100%{box-shadow:0 6px 26px rgba(37,211,102,.45)}
+  50%{box-shadow:0 6px 36px rgba(37,211,102,.7),0 0 0 10px rgba(37,211,102,.1)}}
+
+/* AUDIO BAR */
+.audio-bar{background:var(--green);color:#fff;padding:9px 20px;
+  display:flex;align-items:center;justify-content:center;gap:12px;font-size:.82rem;font-weight:600;flex-wrap:wrap}
+.audio-btn{background:#fff;color:var(--green);border-radius:20px;padding:5px 16px;
+  font-size:.8rem;font-weight:800;font-family:var(--body);cursor:pointer;transition:background .2s}
+.audio-btn:hover{background:var(--cream)}
+
+/* NAVBAR */
+.nav{position:sticky;top:0;z-index:1000;background:rgba(15,35,71,.97);backdrop-filter:blur(12px);
+  padding:0 20px;display:flex;align-items:center;justify-content:space-between;
+  box-shadow:0 2px 24px rgba(0,0,0,.28)}
+.nav-brand{display:flex;align-items:center;gap:12px;padding:12px 0;flex-shrink:0}
+.nav-logo{width:44px;height:44px;background:var(--gold);border-radius:11px;
+  display:flex;align-items:center;justify-content:center;font-family:var(--head);
+  font-size:21px;font-weight:800;color:var(--blue-dk);transition:transform .3s}
+.nav-logo:hover{transform:rotate(-5deg) scale(1.06)}
+.nav-name{color:#fff;font-family:var(--head);font-size:.97rem;font-weight:600;line-height:1.2}
+.nav-name span{display:block;font-size:.67rem;font-family:var(--body);font-weight:400;color:var(--gold-lt);letter-spacing:.04em}
+.nav-links{display:flex;align-items:center;gap:2px}
+.nav-links a{color:rgba(255,255,255,.82);font-size:.8rem;font-weight:600;padding:8px 10px;
+  border-radius:7px;transition:all .2s;cursor:pointer;white-space:nowrap}
+.nav-links a:hover,.nav-links a.act{background:rgba(232,160,32,.18);color:var(--gold-lt)}
+.nav-cta{background:var(--gold)!important;color:var(--blue-dk)!important;
+  padding:8px 18px!important;border-radius:30px!important;font-weight:800!important}
+.nav-cta:hover{background:var(--gold-lt)!important}
+.burger{display:none;flex-direction:column;gap:5px;padding:8px;cursor:pointer}
+.burger span{width:22px;height:2px;background:#fff;border-radius:2px;transition:all .3s;display:block}
+.burger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.mob-menu{display:none;position:fixed;top:67px;left:0;right:0;
+  background:rgba(15,35,71,.98);backdrop-filter:blur(16px);
+  padding:12px;z-index:999;max-height:calc(100vh - 67px);overflow-y:auto}
+.mob-menu.open{display:flex;flex-direction:column;gap:2px;animation:fadeUp .2s ease}
+.mob-menu a{color:rgba(255,255,255,.85);padding:13px 16px;border-radius:8px;
+  font-weight:600;font-size:.93rem;cursor:pointer;display:flex;align-items:center;gap:10px}
+.mob-menu a:hover{background:rgba(232,160,32,.15);color:var(--gold-lt)}
+.mob-cta{background:var(--gold)!important;color:var(--blue-dk)!important;
+  font-weight:800!important;border-radius:10px!important;margin-top:8px}
+
+/* LAYOUT */
+.section{padding:80px 20px}.section-sm{padding:48px 20px}
+.wrap{max-width:1160px;margin:0 auto}.wrap-sm{max-width:860px;margin:0 auto}
+.center{text-align:center}
+.center .slabel{justify-content:center}.center .slabel::before{display:none}
+.center .ssub{margin-left:auto;margin-right:auto}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+
+/* TYPOGRAPHY */
+.slabel{font-size:.77rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.slabel::before{content:'';width:26px;height:3px;background:var(--gold);border-radius:2px}
+.stitle{font-family:var(--head);font-size:clamp(1.85rem,4vw,2.75rem);font-weight:800;
+  color:var(--blue-dk);line-height:1.22;margin-bottom:16px}
+.stitle em{font-style:italic;color:var(--gold)}
+.ssub{color:var(--muted);font-size:1.03rem;max-width:600px;margin-bottom:44px;line-height:1.82}
+.divider{height:4px;width:56px;background:var(--gold);border-radius:2px;margin:18px 0 26px}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 30px;border-radius:50px;
+  font-weight:800;font-size:.93rem;font-family:var(--body);cursor:pointer;
+  transition:all .25s;border:none;white-space:nowrap}
+.btn-gold{background:var(--gold);color:var(--blue-dk)}
+.btn-gold:hover{background:var(--gold-lt);transform:translateY(-2px);box-shadow:0 8px 28px rgba(232,160,32,.4)}
+.btn-blue{background:var(--blue);color:#fff}
+.btn-blue:hover{background:var(--blue-dk);transform:translateY(-2px);box-shadow:0 8px 28px rgba(26,58,107,.32)}
+.btn-green{background:var(--green);color:#fff}
+.btn-green:hover{background:var(--green-dk);transform:translateY(-2px)}
+.btn-outline{background:transparent;color:var(--blue);border:2px solid var(--blue)}
+.btn-outline:hover{background:var(--blue);color:#fff}
+.btn-outline-w{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.45)}
+.btn-outline-w:hover{border-color:var(--gold);color:var(--gold)}
+.btn-lg{padding:17px 42px;font-size:1.03rem}
+.btn-sm{padding:9px 22px;font-size:.84rem}
+.btn-block{width:100%;justify-content:center}
+
+/* CARDS */
+.card{background:#fff;border-radius:var(--rad);padding:36px;box-shadow:var(--shadow);
+  border:1px solid var(--border);transition:transform .25s,box-shadow .25s}
+.card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg)}
+
+/* BADGES */
+.badge{display:inline-block;padding:4px 13px;border-radius:20px;
+  font-size:.73rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase}
+.badge-gold{background:rgba(232,160,32,.14);color:#9a6200}
+.badge-blue{background:rgba(26,58,107,.10);color:var(--blue)}
+.badge-green{background:rgba(46,125,82,.12);color:var(--green)}
+
+/* CHECK LIST */
+.cklist{display:flex;flex-direction:column;gap:10px;margin-bottom:24px}
+.cklist li{display:flex;align-items:flex-start;gap:10px;font-size:.92rem;color:var(--charcoal);line-height:1.6}
+.cklist li::before{content:'✓';width:22px;height:22px;background:var(--green);color:#fff;
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:900;flex-shrink:0;margin-top:1px}
+
+/* FORMS */
+.fbox{background:#fff;border-radius:var(--rad);padding:44px;box-shadow:var(--shadow-lg);border:1px solid var(--border)}
+.flabel{display:block;font-size:.86rem;font-weight:800;color:var(--blue-dk);margin-bottom:7px}
+.finput,.fselect,.ftextarea{width:100%;padding:13px 17px;border:2px solid var(--border);
+  border-radius:var(--rad-sm);font-family:var(--body);font-size:.97rem;color:var(--charcoal);
+  background:var(--cream);transition:all .2s;outline:none}
+.finput:focus,.fselect:focus,.ftextarea:focus{border-color:var(--blue);
+  box-shadow:0 0 0 4px rgba(26,58,107,.09);background:#fff}
+.ftextarea{resize:vertical;min-height:110px;line-height:1.65}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.fhint{font-size:.78rem;color:var(--muted);margin-top:5px}
+.fgroup{margin-bottom:22px}
+
+/* FAQ */
+.faq{border:1px solid var(--border);border-radius:var(--rad-sm);overflow:hidden;margin-bottom:10px}
+.faq-q{padding:17px 20px;display:flex;justify-content:space-between;align-items:center;
+  cursor:pointer;font-weight:700;color:var(--blue-dk);font-size:.93rem;background:#fff;
+  transition:background .2s;user-select:none}
+.faq-q:hover{background:var(--cream)}
+.faq-arrow{font-size:1rem;transition:transform .3s;flex-shrink:0;margin-left:12px}
+.faq-a{display:none;padding:0 20px 16px;font-size:.91rem;color:var(--muted);line-height:1.82;background:#fff}
+.faq.open .faq-a{display:block}.faq.open .faq-arrow{transform:rotate(180deg)}
+
+/* TABLE */
+.dtable{width:100%;border-collapse:collapse}
+.dtable th{background:var(--blue-dk);color:#fff;padding:13px 16px;text-align:left;font-size:.84rem;font-weight:700}
+.dtable td{padding:13px 16px;border-bottom:1px solid var(--border);font-size:.89rem}
+.dtable tr:hover td{background:var(--cream)}.dtable tr:last-child td{border-bottom:none}
+
+/* CONTACT INFO */
+.cinfo{display:flex;gap:16px;align-items:flex-start;padding:22px;background:#fff;
+  border-radius:var(--rad-sm);box-shadow:var(--shadow);border:1px solid var(--border);transition:transform .2s}
+.cinfo:hover{transform:translateX(4px)}
+.cinfo-icon{width:50px;height:50px;border-radius:11px;background:var(--cream-dk);
+  display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.cinfo-label{font-size:.75rem;font-weight:800;color:var(--gold);text-transform:uppercase;letter-spacing:.07em;margin-bottom:3px}
+.cinfo-val{font-size:.97rem;font-weight:700;color:var(--blue-dk);margin-bottom:2px}
+.cinfo-sub{font-size:.83rem;color:var(--muted)}
+
+/* CTA BANNER */
+.cta-banner{background:linear-gradient(135deg,var(--gold) 0%,#cc8000 100%);border-radius:var(--rad);
+  padding:56px 44px;text-align:center;position:relative;overflow:hidden}
+.cta-banner::before{content:'';position:absolute;top:-50px;right:-50px;width:200px;height:200px;
+  background:rgba(255,255,255,.1);border-radius:50%}
+.cta-banner::after{content:'';position:absolute;bottom:-40px;left:-30px;width:160px;height:160px;
+  background:rgba(255,255,255,.06);border-radius:50%}
+.cta-banner h2{font-family:var(--head);font-size:clamp(1.7rem,3.5vw,2.5rem);font-weight:800;
+  color:var(--blue-dk);margin-bottom:14px;position:relative;z-index:1}
+.cta-banner p{color:rgba(15,35,71,.72);font-size:1.03rem;margin-bottom:28px;
+  position:relative;z-index:1;max-width:560px;margin-left:auto;margin-right:auto}
+
+/* TESTIMONIALS */
+.testi{background:#fff;border-radius:var(--rad);padding:34px;border-left:5px solid var(--gold);
+  box-shadow:var(--shadow);transition:transform .25s,box-shadow .25s}
+.testi:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.testi-q{font-size:3.5rem;color:var(--gold);font-family:Georgia;line-height:.9;margin-bottom:10px}
+.testi-text{font-size:.97rem;color:var(--charcoal);line-height:1.85;margin-bottom:22px;font-style:italic}
+.testi-author{display:flex;align-items:center;gap:12px}
+.testi-avi{width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.testi-name{font-weight:800;color:var(--blue-dk);font-size:.93rem}
+.testi-role{font-size:.79rem;color:var(--muted)}
+
+/* SCROLL REVEAL */
+.rv{opacity:0;transform:translateY(30px);transition:opacity .65s ease,transform .65s ease}
+.rv.vis{opacity:1;transform:translateY(0)}
+.rv-l{opacity:0;transform:translateX(-30px);transition:opacity .65s ease,transform .65s ease}
+.rv-l.vis{opacity:1;transform:translateX(0)}
+.rv-r{opacity:0;transform:translateX(30px);transition:opacity .65s ease,transform .65s ease}
+.rv-r.vis{opacity:1;transform:translateX(0)}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+.d4{transition-delay:.4s}.d5{transition-delay:.5s}
+
+/* ================================================================
+   HERO — ANIMATED SLIDESHOW
+   ================================================================ */
+.hero{position:relative;min-height:92vh;display:flex;align-items:center;overflow:hidden}
+.slides{position:absolute;inset:0;z-index:0}
+.slide{position:absolute;inset:0;background-size:cover;background-position:center;
+  opacity:0;transition:opacity 1.4s ease}
+.slide.active{opacity:1;animation:kb 8s ease-in-out forwards}
+@keyframes kb{from{transform:scale(1)}to{transform:scale(1.08)}}
+.slide:nth-child(1){background-image:url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=1600&auto=format&fit=crop&q=80')}
+.slide:nth-child(2){background-image:url('https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=1600&auto=format&fit=crop&q=80')}
+.slide:nth-child(3){background-image:url('https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=1600&auto=format&fit=crop&q=80')}
+.slide:nth-child(4){background-image:url('https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?w=1600&auto=format&fit=crop&q=80')}
+.slide:nth-child(5){background-image:url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1600&auto=format&fit=crop&q=80')}
+.hero-overlay{position:absolute;inset:0;z-index:1;
+  background:linear-gradient(105deg,rgba(10,22,50,.88) 0%,rgba(10,22,50,.65) 55%,rgba(10,22,50,.35) 100%)}
+.hero-dots{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:3;display:flex;gap:10px}
+.hero-dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.4);
+  cursor:pointer;transition:all .3s;border:none}
+.hero-dot.active{background:var(--gold);width:28px;border-radius:5px}
+.hero-content{position:relative;z-index:2;max-width:1160px;margin:0 auto;width:100%;padding:0 20px 60px}
+.hero-inner{max-width:720px}
+.hero-pill{display:inline-flex;align-items:center;gap:9px;background:rgba(232,160,32,.18);
+  border:1px solid rgba(232,160,32,.35);color:var(--gold-lt);padding:7px 18px;border-radius:30px;
+  font-size:.8rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:24px;
+  animation:slideD .7s ease both}
+@keyframes slideD{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:translateY(0)}}
+.hero-title{font-family:var(--head);font-size:clamp(2.4rem,6vw,4.2rem);font-weight:800;color:#fff;
+  line-height:1.14;margin-bottom:20px;animation:slideU .8s .1s ease both}
+.hero-title em{font-style:italic;color:var(--gold)}
+@keyframes slideU{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+.hero-desc{color:rgba(255,255,255,.82);font-size:1.08rem;line-height:1.82;margin-bottom:34px;
+  max-width:560px;animation:slideU .8s .2s ease both}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:52px;animation:slideU .8s .3s ease both}
+.hero-stats{display:flex;gap:20px;flex-wrap:wrap;animation:slideU .8s .4s ease both}
+.hstat{background:rgba(255,255,255,.1);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.18);
+  border-radius:var(--rad-sm);padding:14px 20px;min-width:110px}
+.hstat-n{font-family:var(--head);font-size:1.9rem;font-weight:800;color:var(--gold);line-height:1}
+.hstat-l{font-size:.73rem;color:rgba(255,255,255,.68);font-weight:600;margin-top:4px}
+.hero-float{position:absolute;right:60px;bottom:80px;z-index:2;background:rgba(255,255,255,.96);
+  backdrop-filter:blur(12px);border-radius:var(--rad);padding:22px 26px;max-width:270px;
+  box-shadow:0 16px 48px rgba(0,0,0,.22);animation:floatCard 3.5s ease-in-out infinite,slideU .9s .5s ease both}
+@keyframes floatCard{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.hero-float p{font-size:.86rem;color:var(--muted);font-style:italic;line-height:1.55}
+.hero-float strong{display:block;margin-top:10px;font-size:.79rem;color:var(--green);font-weight:800}
+.stars{color:var(--gold);font-size:.88rem;margin-bottom:8px}
+
+/* IMPACT STRIP */
+.impact-strip{background:var(--blue-dk);padding:28px 20px}
+.impact-inner{max-width:1160px;margin:0 auto;display:flex;justify-content:space-around;
+  align-items:center;flex-wrap:wrap;gap:20px}
+.imp-item{text-align:center}
+.imp-n{font-family:var(--head);font-size:2.2rem;font-weight:800;color:var(--gold);line-height:1}
+.imp-l{font-size:.78rem;color:rgba(255,255,255,.62);font-weight:600;margin-top:5px}
+
+/* PAGE HEROES */
+.ph{position:relative;padding:90px 20px;display:flex;align-items:center;justify-content:center;
+  text-align:center;color:#fff;overflow:hidden;min-height:370px}
+.ph::before{content:'';position:absolute;inset:0;background-size:cover;background-position:center;
+  z-index:0;animation:kb 14s ease-in-out infinite alternate}
+.ph::after{content:'';position:absolute;inset:0;z-index:1}
+.ph-inner{position:relative;z-index:2;max-width:700px}
+.ph h1{font-family:var(--head);font-size:clamp(2rem,5vw,3.2rem);font-weight:800;
+  margin-bottom:16px;line-height:1.2}
+.ph h1 em{font-style:italic;color:var(--gold)}
+.ph p{color:rgba(255,255,255,.84);font-size:1.03rem;max-width:600px;margin:0 auto;line-height:1.8}
+.ph-about::before{background-image:url('https://images.unsplash.com/photo-1509062522246-3755977927d7?w=1600&auto=format&fit=crop&q=80')}
+.ph-about::after{background:linear-gradient(135deg,rgba(10,22,50,.82),rgba(10,22,50,.6))}
+.ph-progs::before{background-image:url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1600&auto=format&fit=crop&q=80')}
+.ph-progs::after{background:linear-gradient(135deg,rgba(26,58,107,.84),rgba(26,58,107,.55))}
+.ph-stories::before{background-image:url('https://images.unsplash.com/photo-1529390079861-591de354faf5?w=1600&auto=format&fit=crop&q=80')}
+.ph-stories::after{background:linear-gradient(135deg,rgba(10,22,50,.82),rgba(26,58,107,.55))}
+.ph-enrol::before{background-image:url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=1600&auto=format&fit=crop&q=80')}
+.ph-enrol::after{background:linear-gradient(135deg,rgba(46,125,82,.88),rgba(26,92,55,.6))}
+.ph-involve::before{background-image:url('https://images.unsplash.com/photo-1560252829-804f1aedf1be?w=1600&auto=format&fit=crop&q=80')}
+.ph-involve::after{background:linear-gradient(135deg,rgba(139,34,82,.85),rgba(80,20,50,.55))}
+.ph-news::before{background-image:url('https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=1600&auto=format&fit=crop&q=80')}
+.ph-news::after{background:linear-gradient(135deg,rgba(44,74,26,.88),rgba(61,107,37,.55))}
+.ph-games::before{background-image:url('https://images.unsplash.com/photo-1576158674803-b4ecd867cc3f?w=1600&auto=format&fit=crop&q=80')}
+.ph-games::after{background:linear-gradient(135deg,rgba(44,26,107,.88),rgba(74,46,154,.55))}
+.ph-contact::before{background-image:url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1600&auto=format&fit=crop&q=80')}
+.ph-contact::after{background:linear-gradient(135deg,rgba(31,31,31,.88),rgba(58,58,58,.6))}
+
+/* ABOUT */
+.about-2col{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.img-box{border-radius:var(--rad);overflow:hidden;position:relative}
+.img-box img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.img-box:hover img{transform:scale(1.04)}
+.img-caption{position:absolute;bottom:0;left:0;right:0;
+  background:linear-gradient(transparent,rgba(10,22,50,.9));padding:24px 20px 20px}
+.img-caption strong{display:block;color:#fff;font-weight:800;font-size:.92rem}
+.img-caption span{font-size:.79rem;color:rgba(255,255,255,.72)}
+.vitem{display:flex;gap:16px;align-items:flex-start;padding:22px;border-radius:var(--rad-sm);
+  background:#fff;box-shadow:var(--shadow);border:1px solid var(--border);transition:transform .25s,box-shadow .25s}
+.vitem:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
+.vi-icon{font-size:1.8rem;flex-shrink:0;margin-top:2px}
+.vi-title{font-weight:800;color:var(--blue-dk);margin-bottom:5px;font-size:.97rem}
+.vi-text{font-size:.88rem;color:var(--muted);line-height:1.72}
+.team-card{text-align:center;padding:32px 22px}
+.team-img{width:88px;height:88px;border-radius:50%;margin:0 auto 16px;overflow:hidden;border:4px solid var(--gold-lt)}
+.team-img img{width:100%;height:100%;object-fit:cover}
+.team-name{font-family:var(--head);font-weight:700;color:var(--blue-dk);font-size:1.03rem;margin-bottom:3px}
+.team-role{font-size:.79rem;color:var(--gold);font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:11px}
+.team-bio{font-size:.88rem;color:var(--muted);line-height:1.72}
+.timeline{position:relative;padding-left:30px}
+.timeline::before{content:'';position:absolute;left:9px;top:14px;bottom:14px;width:3px;background:var(--border);border-radius:2px}
+.tl-item{position:relative;padding:18px 0 18px 26px}
+.tl-item::before{content:'';position:absolute;left:-26px;top:26px;width:13px;height:13px;
+  border-radius:50%;background:var(--gold);border:3px solid #fff;box-shadow:0 0 0 2px var(--gold)}
+.tl-year{font-size:.75rem;font-weight:800;color:var(--gold);letter-spacing:.07em;text-transform:uppercase;margin-bottom:4px}
+.tl-title{font-size:.95rem;font-weight:700;color:var(--charcoal);margin-bottom:3px}
+.tl-sub{font-size:.84rem;color:var(--muted);line-height:1.6}
+
+/* PROGRAMMES */
+.prog-card{border-radius:var(--rad);overflow:hidden;box-shadow:var(--shadow);
+  border:1px solid var(--border);background:#fff;transition:transform .25s,box-shadow .25s}
+.prog-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg)}
+.prog-head{position:relative;height:220px;overflow:hidden}
+.prog-head img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.prog-card:hover .prog-head img{transform:scale(1.06)}
+.prog-overlay{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:22px}
+.prog-overlay.beg{background:linear-gradient(transparent,rgba(160,100,0,.9))}
+.prog-overlay.int{background:linear-gradient(transparent,rgba(26,58,107,.9))}
+.prog-overlay.adv{background:linear-gradient(transparent,rgba(30,90,55,.9))}
+.prog-title{font-family:var(--head);font-size:1.45rem;font-weight:800;color:#fff;margin-bottom:4px}
+.prog-tag{font-size:.86rem;color:rgba(255,255,255,.82);font-style:italic}
+.prog-body{padding:26px 30px 30px}
+.prog-desc{font-size:.93rem;color:var(--charcoal);line-height:1.82;margin-bottom:22px}
+.prog-meta{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:22px}
+.prog-mi{display:flex;align-items:center;gap:7px;font-size:.85rem;color:var(--muted)}
+.prog-mi strong{color:var(--charcoal);font-weight:700}
+.prog-outcome{background:var(--cream-dk);border-radius:var(--rad-sm);padding:15px 17px;
+  margin-bottom:22px;border-left:4px solid var(--gold)}
+.prog-outcome p{font-size:.87rem;color:var(--blue-dk);font-style:italic;line-height:1.72}
+
+/* LVL CARD */
+.lvl-card{border-radius:var(--rad);overflow:hidden;background:#fff;box-shadow:var(--shadow);
+  border:1px solid var(--border);border-top-width:5px;transition:transform .25s,box-shadow .25s}
+.lvl-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg)}
+.lvl-img{height:160px;overflow:hidden}
+.lvl-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.lvl-card:hover .lvl-img img{transform:scale(1.08)}
+.lvl-body{padding:24px}
+
+/* STORIES */
+.story-card{border-radius:var(--rad);overflow:hidden;background:#fff;box-shadow:var(--shadow);
+  border:1px solid var(--border);transition:transform .25s,box-shadow .25s}
+.story-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.story-head{background:linear-gradient(135deg,var(--blue-dk),var(--blue));
+  padding:26px;display:flex;gap:16px;align-items:center}
+.story-avi{width:66px;height:66px;border-radius:50%;background:rgba(255,255,255,.14);
+  display:flex;align-items:center;justify-content:center;font-size:28px;flex-shrink:0;border:3px solid var(--gold)}
+.story-pname{font-family:var(--head);font-size:1.13rem;font-weight:700;color:#fff;margin-bottom:3px}
+.story-pdet{font-size:.79rem;color:rgba(255,255,255,.68)}
+.story-badges{margin-top:7px;display:flex;gap:7px;flex-wrap:wrap}
+.story-body{padding:26px}
+.first-word{background:var(--cream-dk);border-radius:var(--rad-sm);padding:13px 16px;
+  margin-bottom:16px;text-align:center;border-left:4px solid var(--gold)}
+.first-word span{font-size:.74rem;font-weight:800;color:var(--gold);text-transform:uppercase;
+  letter-spacing:.08em;display:block;margin-bottom:4px}
+.first-word strong{font-family:var(--head);font-size:1.45rem;color:var(--blue-dk)}
+.story-text{font-size:.93rem;color:var(--charcoal);line-height:1.88;font-style:italic}
+.grad-wall{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:12px}
+.grad-tile{background:#fff;border-radius:var(--rad-sm);padding:16px 10px;text-align:center;
+  border:1px solid var(--border);box-shadow:0 2px 10px rgba(26,58,107,.07);transition:transform .2s,box-shadow .2s}
+.grad-tile:hover{transform:scale(1.06);box-shadow:var(--shadow)}
+.grad-tile i{font-size:28px;display:block;margin-bottom:6px;font-style:normal}
+.grad-tile-n{font-size:.78rem;font-weight:700;color:var(--blue-dk)}
+.grad-tile-y{font-size:.71rem;color:var(--gold);font-weight:600}
+
+/* INVOLVE */
+.inv-card{border-radius:var(--rad);overflow:hidden;box-shadow:var(--shadow);
+  border:1px solid var(--border);background:#fff;transition:transform .25s,box-shadow .25s}
+.inv-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.inv-img{height:176px;overflow:hidden}
+.inv-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.inv-card:hover .inv-img img{transform:scale(1.06)}
+.inv-body{padding:24px 28px 30px}
+.inv-title{font-family:var(--head);font-size:1.28rem;font-weight:800;color:var(--blue-dk);margin-bottom:7px}
+.inv-tag{font-size:.86rem;color:var(--muted);font-style:italic;margin-bottom:14px}
+.inv-text{font-size:.93rem;color:var(--charcoal);line-height:1.82;margin-bottom:16px}
+.donate-box{background:var(--blue-dk);border-radius:var(--rad);padding:48px 40px;
+  color:#fff;text-align:center;position:relative;overflow:hidden}
+.donate-box::before{content:'';position:absolute;top:-60px;right:-60px;width:240px;height:240px;
+  background:rgba(232,160,32,.08);border-radius:50%}
+.donate-box h3{font-family:var(--head);font-size:1.55rem;font-weight:800;margin-bottom:10px;position:relative;z-index:1}
+.donate-box p{color:rgba(255,255,255,.72);margin-bottom:26px;font-size:.93rem;line-height:1.75;position:relative;z-index:1}
+.d-amounts{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:26px;position:relative;z-index:1}
+.d-amt{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.18);
+  border-radius:var(--rad-sm);padding:13px 20px;cursor:pointer;transition:all .2s;text-align:center;min-width:108px}
+.d-amt:hover,.d-amt.sel{background:var(--gold);border-color:var(--gold);color:var(--blue-dk)}
+.d-amt-n{font-family:var(--head);font-size:1.15rem;font-weight:800}
+.d-amt-l{font-size:.72rem;opacity:.82;margin-top:3px}
+
+/* NEWS */
+.art-card{border-radius:var(--rad);overflow:hidden;background:#fff;box-shadow:var(--shadow);
+  border:1px solid var(--border);transition:transform .25s,box-shadow .25s}
+.art-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.art-img{height:190px;overflow:hidden}
+.art-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.art-card:hover .art-img img{transform:scale(1.06)}
+.art-body{padding:24px}
+.art-date{font-size:.74rem;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px}
+.art-title{font-family:var(--head);font-size:1.05rem;font-weight:700;color:var(--blue-dk);margin-bottom:10px;line-height:1.38}
+.art-ex{font-size:.87rem;color:var(--muted);line-height:1.78;margin-bottom:16px}
+.res-card{display:flex;align-items:center;gap:16px;padding:20px;border-radius:var(--rad-sm);
+  background:#fff;box-shadow:var(--shadow);border:1px solid var(--border);transition:transform .2s,box-shadow .2s}
+.res-card:hover{transform:translateX(5px);box-shadow:var(--shadow-lg)}
+.res-icon{width:52px;height:52px;border-radius:11px;background:var(--cream-dk);
+  display:flex;align-items:center;justify-content:center;font-size:23px;flex-shrink:0}
+.res-title{font-weight:800;color:var(--blue-dk);font-size:.92rem;margin-bottom:3px}
+.res-desc{font-size:.82rem;color:var(--muted);line-height:1.55}
+.res-dl{margin-left:auto;font-size:1.4rem;color:var(--blue);cursor:pointer;flex-shrink:0;transition:transform .2s}
+.res-dl:hover{transform:translateY(3px)}
+
+/* GAMES */
+.game-card{border-radius:var(--rad);overflow:hidden;box-shadow:var(--shadow);
+  border:1px solid var(--border);background:#fff;transition:box-shadow .25s}
+.game-card:hover{box-shadow:var(--shadow-lg)}
+.game-header{padding:24px 24px 16px}
+.game-title{font-family:var(--head);font-size:1.18rem;font-weight:800;color:var(--blue-dk);margin-bottom:5px}
+.game-desc{font-size:.87rem;color:var(--muted);margin-bottom:14px;line-height:1.6}
+.game-area{background:var(--cream-dk);border-radius:var(--rad-sm);padding:20px;
+  margin-bottom:14px;min-height:148px;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:12px;text-align:center}
+.game-body{padding:0 24px 24px}
+.score-chip{background:var(--blue-dk);color:var(--gold);font-family:var(--head);
+  font-size:.97rem;font-weight:800;padding:5px 16px;border-radius:20px}
+.word-disp{font-family:var(--head);font-size:2.1rem;font-weight:800;color:var(--blue-dk);letter-spacing:.1em}
+.blank{color:var(--gold);border-bottom:3px solid var(--gold);padding:0 4px}
+.opts-row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.opt-btn{background:#fff;border:2px solid var(--border);border-radius:var(--rad-sm);
+  padding:10px 18px;font-size:.97rem;font-weight:700;font-family:var(--body);cursor:pointer;transition:all .2s}
+.opt-btn:hover{border-color:var(--blue);background:var(--cream);transform:translateY(-2px)}
+.opt-btn.correct{background:var(--green);color:#fff;border-color:var(--green);animation:pop .3s ease}
+.opt-btn.wrong{background:#c0392b;color:#fff;border-color:#c0392b;animation:shake .3s ease}
+@keyframes pop{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
+@keyframes shake{0%,100%{transform:translateX(0)}25%,75%{transform:translateX(-4px)}50%{transform:translateX(4px)}}
+
+/* FEE NOTE */
+.fee-note{background:linear-gradient(135deg,var(--gold-pale),#fff);border:2px solid var(--gold);
+  border-radius:var(--rad);padding:30px 34px;position:relative;overflow:hidden}
+.fee-note::before{content:'💰';font-size:48px;position:absolute;right:24px;top:50%;
+  transform:translateY(-50%);opacity:.12}
+.fee-note h3{font-family:var(--head);font-size:1.38rem;color:var(--blue-dk);margin-bottom:10px}
+.fee-note p{color:var(--muted);font-size:.93rem;line-height:1.8;max-width:560px;margin-bottom:16px}
+
+/* FOOTER */
+footer{background:var(--blue-dk);color:rgba(255,255,255,.72);padding:58px 20px 28px}
+.footer-grid{max-width:1160px;margin:0 auto;display:grid;
+  grid-template-columns:2fr 1fr 1fr 1fr;gap:44px;margin-bottom:44px}
+.footer-brand h3{font-family:var(--head);color:#fff;font-size:1.13rem;font-weight:700;margin-bottom:10px}
+.footer-brand p{font-size:.86rem;line-height:1.8;max-width:280px}
+.footer-col h4{color:#fff;font-size:.82rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px}
+.footer-col ul li{margin-bottom:9px}
+.footer-col ul li a{font-size:.85rem;cursor:pointer;transition:color .2s}
+.footer-col ul li a:hover{color:var(--gold-lt)}
+.footer-bottom{max-width:1160px;margin:0 auto;border-top:1px solid rgba(255,255,255,.09);
+  padding-top:22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:.8rem}
+.footer-social{display:flex;gap:10px}
+.soc-icon{width:38px;height:38px;background:rgba(255,255,255,.09);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;font-size:15px;cursor:pointer;transition:all .25s}
+.soc-icon:hover{background:var(--gold);transform:translateY(-3px)}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .g3,.g4{grid-template-columns:1fr 1fr}
+  .about-2col{grid-template-columns:1fr;gap:36px}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .hero-float{display:none}
+  .frow{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  html{font-size:16px}
+  .nav-links{display:none}.burger{display:flex}
+  .g2,.g3,.g4{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .section{padding:54px 16px}.section-sm{padding:34px 16px}
+  .fbox{padding:26px 18px}
+  .hero-stats{gap:10px}.hstat{padding:10px 14px;min-width:90px}
+  .hero-btns{flex-direction:column;align-items:flex-start}
+  .footer-bottom{flex-direction:column;text-align:center}
+  .cta-banner{padding:34px 18px}
+  .donate-box{padding:36px 20px}
+  .d-amounts{flex-direction:column;align-items:center}
+  .d-amt{width:100%;max-width:260px}
+}
+@media print{
+  .audio-bar,.nav,.wa,.toast,.burger,.mob-menu,footer,.hero-dots{display:none!important}
+  .page{display:block!important}
+  body{background:#fff;color:#000;font-size:12pt}
+}
+</style>
+</head>
+<body>
+<div class="toast" id="toast" role="alert" aria-live="polite"></div>
+<a class="wa" href="https://wa.me/2348012345678?text=Hello%2C%20I%20am%20interested%20in%20Highflyer%20Adult%20Education%20Centre." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">💬</a>
+<div class="audio-bar">
+  <p>🔊 Can't read this easily? Let us read it for you.</p>
+  <button class="audio-btn" onclick="toggleAudio()" id="audioBtn">▶ Read Page Aloud</button>
+</div>
+<nav class="nav" aria-label="Main navigation">
+  <div class="nav-brand">
+    <div class="nav-logo">H</div>
+    <div class="nav-name">Highflyer Adult Education Centre<span>Lift Every Voice. Teach Every Heart.</span></div>
+  </div>
+  <div class="nav-links">
+    <a onclick="go('home')" id="n-home" class="act">Home</a>
+    <a onclick="go('about')" id="n-about">About Us</a>
+    <a onclick="go('progs')" id="n-progs">Programmes</a>
+    <a onclick="go('stories')" id="n-stories">Stories</a>
+    <a onclick="go('news')" id="n-news">News</a>
+    <a onclick="go('involve')" id="n-involve">Get Involved</a>
+    <a onclick="go('games')" id="n-games">🎮 Games</a>
+    <a onclick="go('contact')" id="n-contact">Contact</a>
+    <a onclick="go('enrol')" id="n-enrol" class="nav-cta">✏️ Enquire Now</a>
+  </div>
+  <button class="burger" onclick="toggleMenu()" id="burger" aria-label="Toggle navigation" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mob-menu" id="mobMenu">
+  <a onclick="go('home');closeMenu()">🏠 Home</a>
+  <a onclick="go('about');closeMenu()">📖 About Us</a>
+  <a onclick="go('progs');closeMenu()">🎓 Our Programmes</a>
+  <a onclick="go('stories');closeMenu()">⭐ Learner Stories</a>
+  <a onclick="go('news');closeMenu()">📰 News &amp; Resources</a>
+  <a onclick="go('involve');closeMenu()">🤝 Get Involved</a>
+  <a onclick="go('games');closeMenu()">🎮 Literacy Games</a>
+  <a onclick="go('contact');closeMenu()">📞 Contact Us</a>
+  <a onclick="go('enrol');closeMenu()" class="mob-cta">✏️ Enquire Now</a>
+</div>
+<main id="main">
+
+<!-- ================================================================ HOME ================================================================ -->
+<div class="page active" id="page-home">
+<section class="hero">
+  <div class="slides">
+    <div class="slide active"></div><div class="slide"></div><div class="slide"></div><div class="slide"></div><div class="slide"></div>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-inner">
+      <div class="hero-pill">📚 Port Harcourt's Premier Adult Literacy Centre</div>
+      <h1 class="hero-title">It's Never Too Late<br>to <em>Learn to Read.</em></h1>
+      <p class="hero-desc">At Highflyer, we believe every adult deserves the dignity of reading their own name, writing their own story, and speaking with full confidence. Affordable, structured classes — from total beginners to advanced communication skills.</p>
+      <div class="hero-btns">
+        <button class="btn btn-gold btn-lg" onclick="go('enrol')">✏️ Enquire &amp; Enrol Today</button>
+        <button class="btn btn-outline-w btn-lg" onclick="go('progs')">Explore Programmes →</button>
+      </div>
+      <div class="hero-stats">
+        <div class="hstat"><div class="hstat-n counter" data-target="1400" data-suffix="+">0</div><div class="hstat-l">Graduates Since 2009</div></div>
+        <div class="hstat"><div class="hstat-n counter" data-target="15" data-suffix="+">0</div><div class="hstat-l">Years of Service</div></div>
+        <div class="hstat"><div class="hstat-n" style="font-family:var(--head);font-size:1.9rem;font-weight:800;color:var(--gold);line-height:1">3</div><div class="hstat-l">Learning Levels</div></div>
+        <div class="hstat"><div class="hstat-n counter" data-target="98" data-suffix="%">0</div><div class="hstat-l">Completion Rate</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-float">
+    <div class="stars">★★★★★</div>
+    <p>"The day I read my daughter's school report for the first time, I cried. Highflyer gave me that moment."</p>
+    <strong>— Mrs. Blessing O., Graduate 2024</strong>
+  </div>
+  <div class="hero-dots" id="dots"></div>
+</section>
+
+<div class="impact-strip">
+  <div class="impact-inner">
+    <div class="imp-item"><div class="imp-n counter" data-target="1400" data-suffix="+">0</div><div class="imp-l">Lives Transformed</div></div>
+    <div class="imp-item"><div class="imp-n counter" data-target="15" data-suffix="+">0</div><div class="imp-l">Years of Service</div></div>
+    <div class="imp-item"><div class="imp-n counter" data-target="24">0</div><div class="imp-l">Weekly Classes</div></div>
+    <div class="imp-item"><div class="imp-n counter" data-target="40" data-suffix="+">0</div><div class="imp-l">Volunteer Tutors</div></div>
+    <div class="imp-item"><div class="imp-n counter" data-target="6">0</div><div class="imp-l">Communities Reached</div></div>
+  </div>
+</div>
+
+<section class="section">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:48px">
+      <div class="slabel">What We Do</div>
+      <h2 class="stitle">Three Skills That <em>Change Everything</em></h2>
+      <p class="ssub">We start where you are. No shame. No rush. Steady, patient learning that fits around your life and your schedule.</p>
+    </div>
+    <div class="g3">
+      <div class="card rv d1" style="text-align:center;padding:40px 28px">
+        <div style="font-size:48px;margin-bottom:16px">📖</div>
+        <h3 style="font-family:var(--head);font-size:1.22rem;color:var(--blue-dk);margin-bottom:10px">Reading</h3>
+        <p style="color:var(--muted);font-size:.92rem;line-height:1.82">We begin with the alphabet, move through sounds, and work patiently until every word on a page becomes something you recognise. Relaxed, supportive, and designed so nobody ever feels embarrassed about where they start.</p>
+      </div>
+      <div class="card rv d2" style="text-align:center;padding:40px 28px">
+        <div style="font-size:48px;margin-bottom:16px">✍️</div>
+        <h3 style="font-family:var(--head);font-size:1.22rem;color:var(--blue-dk);margin-bottom:10px">Writing</h3>
+        <p style="color:var(--muted);font-size:.92rem;line-height:1.82">From forming your first letters to writing complete sentences, filling forms, and putting your own thoughts on paper — our writing classes give you a voice that goes beyond spoken words. Many learners write letters to family for the very first time.</p>
+      </div>
+      <div class="card rv d3" style="text-align:center;padding:40px 28px">
+        <div style="font-size:48px;margin-bottom:16px">🗣️</div>
+        <h3 style="font-family:var(--head);font-size:1.22rem;color:var(--blue-dk);margin-bottom:10px">Communication</h3>
+        <p style="color:var(--muted);font-size:.92rem;line-height:1.82">Reading and writing are only part of the story. We teach you to speak confidently — at the market, the hospital, in meetings, on the phone. Every person has something important to say. We help you say it well.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--cream-dk)">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:48px">
+      <div class="slabel">Our Three Class Levels</div>
+      <h2 class="stitle">We Meet You <em>Exactly Where You Are</em></h2>
+      <p class="ssub">Nobody starts in the wrong place here. Every level is honoured and every starting point welcomed.</p>
+    </div>
+    <div class="g3">
+      <div class="lvl-card rv d1" style="border-top-color:var(--gold)">
+        <div class="lvl-img"><img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600&auto=format&fit=crop&q=75" alt="Beginner adult learner" loading="lazy"/></div>
+        <div class="lvl-body">
+          <div class="badge badge-gold" style="margin-bottom:10px">Beginners</div>
+          <h3 style="font-family:var(--head);font-size:1.15rem;color:var(--blue-dk);margin-bottom:8px">Foundation Class</h3>
+          <p style="font-size:.9rem;color:var(--muted);line-height:1.8;margin-bottom:16px">For those who have never been to school or remember very little. Alphabet, basic sounds, and your very first words. Gentle, patient, completely at your pace.</p>
+          <button class="btn btn-outline btn-sm" onclick="go('progs')">Learn More →</button>
+        </div>
+      </div>
+      <div class="lvl-card rv d2" style="border-top-color:var(--blue)">
+        <div class="lvl-img"><img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=600&auto=format&fit=crop&q=75" alt="Intermediate adult learner" loading="lazy"/></div>
+        <div class="lvl-body">
+          <div class="badge badge-blue" style="margin-bottom:10px">Intermediate</div>
+          <h3 style="font-family:var(--head);font-size:1.15rem;color:var(--blue-dk);margin-bottom:8px">Builder's Class</h3>
+          <p style="font-size:.9rem;color:var(--muted);line-height:1.8;margin-bottom:16px">For those who know some letters and words but struggle with sentences. We build fluency, practical writing, and everyday tasks like reading forms and letters.</p>
+          <button class="btn btn-outline btn-sm" onclick="go('progs')">Learn More →</button>
+        </div>
+      </div>
+      <div class="lvl-card rv d3" style="border-top-color:var(--green)">
+        <div class="lvl-img"><img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=600&auto=format&fit=crop&q=75" alt="Advanced adult learner" loading="lazy"/></div>
+        <div class="lvl-body">
+          <div class="badge badge-green" style="margin-bottom:10px">Advanced</div>
+          <h3 style="font-family:var(--head);font-size:1.15rem;color:var(--blue-dk);margin-bottom:8px">Expression Class</h3>
+          <p style="font-size:.9rem;color:var(--muted);line-height:1.8;margin-bottom:16px">For those who can read and write basic things but want to go much further — public speaking, formal letters, digital literacy, and professional communication.</p>
+          <button class="btn btn-outline btn-sm" onclick="go('progs')">Learn More →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:48px">
+      <div class="slabel">Your Journey With Us</div>
+      <h2 class="stitle">Four Steps to a <em>New Chapter</em></h2>
+      <p class="ssub">We make starting easy. You don't need to bring anything except yourself and your desire to learn.</p>
+    </div>
+    <div style="display:flex;gap:0;flex-wrap:wrap">
+      <div class="rv d1" style="flex:1;min-width:200px;padding:30px 22px;text-align:center">
+        <div style="width:50px;height:50px;background:var(--blue);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--head);font-size:1.3rem;font-weight:800;margin:0 auto 12px">1</div>
+        <h4 style="font-family:var(--head);font-size:1rem;color:var(--blue-dk);margin-bottom:7px">Reach Out</h4>
+        <p style="font-size:.87rem;color:var(--muted);line-height:1.72">Call us, walk in, or WhatsApp. We welcome you with no questions that make you feel judged.</p>
+      </div>
+      <div class="rv d2" style="flex:1;min-width:200px;padding:30px 22px;text-align:center">
+        <div style="width:50px;height:50px;background:var(--gold);color:var(--blue-dk);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--head);font-size:1.3rem;font-weight:800;margin:0 auto 12px">2</div>
+        <h4 style="font-family:var(--head);font-size:1rem;color:var(--blue-dk);margin-bottom:7px">Assessment &amp; Fee</h4>
+        <p style="font-size:.87rem;color:var(--muted);line-height:1.72">A short friendly chat places you in the right class. Affordable monthly fees shared privately at this stage.</p>
+      </div>
+      <div class="rv d3" style="flex:1;min-width:200px;padding:30px 22px;text-align:center">
+        <div style="width:50px;height:50px;background:var(--green);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--head);font-size:1.3rem;font-weight:800;margin:0 auto 12px">3</div>
+        <h4 style="font-family:var(--head);font-size:1rem;color:var(--blue-dk);margin-bottom:7px">Start Learning</h4>
+        <p style="font-size:.87rem;color:var(--muted);line-height:1.72">Join a small, warm group twice a week. Morning and evening sessions available to fit your life.</p>
+      </div>
+      <div class="rv d4" style="flex:1;min-width:200px;padding:30px 22px;text-align:center">
+        <div style="width:50px;height:50px;background:var(--blue-dk);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--head);font-size:1.3rem;font-weight:800;margin:0 auto 12px">4</div>
+        <h4 style="font-family:var(--head);font-size:1rem;color:var(--blue-dk);margin-bottom:7px">Graduate &amp; Grow</h4>
+        <p style="font-size:.87rem;color:var(--muted);line-height:1.72">Complete your level, receive your certificate, and carry your new skills into daily life with pride.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--cream-dk)">
+  <div class="wrap">
+    <div style="margin-bottom:48px">
+      <div class="slabel">Real Words From Real People</div>
+      <h2 class="stitle">What Our Learners <em>Say</em></h2>
+      <p class="ssub">Not polished marketing words. The real voices of adults who came unable to read — and left knowing they could.</p>
+    </div>
+    <div class="g3">
+      <div class="testi rv d1">
+        <div class="testi-q">"</div>
+        <p class="testi-text">Before Highflyer, I used to ask my son to read everything for me — my bills, medical results, even my bank statement. I was 54 and ashamed. Now I read everything myself. My son says I have become a different person. I feel like I have been born again.</p>
+        <div class="testi-author"><div class="testi-avi" style="background:#fff3dc">👩🏿</div><div><div class="testi-name">Mrs. Ngozi Amaechi</div><div class="testi-role">Trader, Rumuola Market — Graduate 2023</div></div></div>
+      </div>
+      <div class="testi rv d2">
+        <div class="testi-q">"</div>
+        <p class="testi-text">I was worried people would laugh — a grown man learning A-B-C. But the tutors here are so gentle. Nobody laughs. We encourage each other. By the third month, I read the Bible at my church for the first time. The congregation clapped. I still get emotional thinking about that moment.</p>
+        <div class="testi-author"><div class="testi-avi" style="background:#dce8ff">👨🏿</div><div><div class="testi-name">Mr. Emmanuel Dike</div><div class="testi-role">Church Deacon — Intermediate Level 2024</div></div></div>
+      </div>
+      <div class="testi rv d3">
+        <div class="testi-q">"</div>
+        <p class="testi-text">My husband enrolled me as a gift for my 60th birthday. I thought it was a joke. But I came and found a safe place — no mockery, just real teaching. Now I write letters to my grandchildren in Lagos. They are proud of their grandmother. That pride, nobody can take it from me.</p>
+        <div class="testi-author"><div class="testi-avi" style="background:#d4f5e3">👩🏿‍🦳</div><div><div class="testi-name">Mama Chidinma Okafor</div><div class="testi-role">Retired Trader — Advanced Level 2024</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="fee-note rv" style="margin-bottom:44px">
+      <h3>About Our Fees</h3>
+      <p>Highflyer runs on affordable monthly tuition fees — so we can maintain trained tutors, quality materials, and proper teaching environments. Fees are shared privately when you enquire, because every learner's situation is different. If cost is a barrier, speak to us — our sponsorship programme exists for exactly that reason.</p>
+      <button class="btn btn-gold" onclick="go('enrol')">Enquire About Fees →</button>
+    </div>
+    <div class="cta-banner rv">
+      <h2>Your First Class Could Be This Week</h2>
+      <p>Enquiry takes five minutes. We'll tell you the fee, the schedule, and everything else — honestly, privately, and without pressure.</p>
+      <button class="btn btn-blue btn-lg" onclick="go('enrol')" style="position:relative;z-index:1">✏️ Enquire &amp; Enrol Now</button>
+    </div>
+  </div>
+</section>
+</div><!-- /home -->
+
+<!-- ================================================================ ABOUT ================================================================ -->
+<div class="page" id="page-about">
+<div class="ph ph-about"><div class="ph-inner"><h1>We Believe Every Adult Deserves to <em>Read Their Own Name</em></h1><p>The story of Highflyer is not about classrooms and textbooks. It is about the stubborn, quiet belief that no human being should live their whole life locked out of the written word.</p></div></div>
+
+<section class="section">
+  <div class="wrap">
+    <div class="about-2col">
+      <div class="rv-l">
+        <div class="slabel">Our Story</div>
+        <h2 class="stitle">Born From a <em>Grandmother's Tears</em></h2>
+        <div class="divider"></div>
+        <p style="margin-bottom:14px;line-height:1.9">In 2009, our founder Mrs. Adaeze Highflyer-Nwosu sat beside her 68-year-old mother in a Port Harcourt hospital corridor. The doctor handed her mother a prescription and discharge form. Her mother stared at it quietly, then passed it to her daughter — not because she couldn't see, but because she couldn't read a single word.</p>
+        <p style="margin-bottom:14px;line-height:1.9">That moment broke Adaeze's heart. Her mother was not unintelligent — she had raised six children, run a thriving market stall for thirty years, and memorised the entire Bible in Igbo. But no one had ever thought to teach her to read English.</p>
+        <p style="margin-bottom:26px;line-height:1.9">Six months later, Highflyer opened in a single room behind Rumuola Baptist Church, with three learners, two plastic chairs, and a handmade blackboard. Today, over fifteen years on, we have served more than 1,400 adults across Rivers State.</p>
+        <button class="btn btn-blue" onclick="go('stories')">Read Learner Stories →</button>
+      </div>
+      <div class="img-box rv-r" style="aspect-ratio:4/3">
+        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&auto=format&fit=crop&q=80" alt="Adult literacy class Nigeria" loading="lazy"/>
+        <div class="img-caption"><strong>Founded 2009 — Rumuola, Port Harcourt</strong><span>From one room to a full learning centre serving Rivers State</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--cream-dk)">
+  <div class="wrap">
+    <div class="g2" style="gap:30px">
+      <div class="card rv-l" style="border-left:5px solid var(--gold)">
+        <div style="font-size:2.3rem;margin-bottom:12px">🎯</div>
+        <h3 style="font-family:var(--head);font-size:1.35rem;color:var(--blue-dk);margin-bottom:11px">Our Mission</h3>
+        <p style="line-height:1.9;color:var(--muted)">To equip illiterate and semi-literate adults in Rivers State with the reading, writing, and communication skills they need to live with full dignity and confidence — at fees that are honest, affordable, and clearly explained.</p>
+      </div>
+      <div class="card rv-r" style="border-left:5px solid var(--blue)">
+        <div style="font-size:2.3rem;margin-bottom:12px">🌅</div>
+        <h3 style="font-family:var(--head);font-size:1.35rem;color:var(--blue-dk);margin-bottom:11px">Our Vision</h3>
+        <p style="line-height:1.9;color:var(--muted)">A Rivers State where no adult is turned away from opportunity, denied access to information, or made to feel ashamed simply because they were never given the chance to learn. Literacy is not a privilege. It is a right.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div style="margin-bottom:48px"><div class="slabel">What We Stand For</div><h2 class="stitle">The Values That <em>Guide Every Class</em></h2></div>
+    <div class="g2">
+      <div class="vitem rv d1"><div class="vi-icon">🙏</div><div><div class="vi-title">Dignity Above All</div><p class="vi-text">Every learner enters as a full, capable adult who deserves respect. We never talk down to anyone or make anyone feel small for starting where they are starting. Dignity is non-negotiable.</p></div></div>
+      <div class="vitem rv d2"><div class="vi-icon">🐢</div><div><div class="vi-title">Patient, Steady Progress</div><p class="vi-text">Learning as an adult takes longer and requires a kind of courage that children don't need. We move at your pace, not ours. There are no races here — only forward progress.</p></div></div>
+      <div class="vitem rv d3"><div class="vi-icon">🤝</div><div><div class="vi-title">Community &amp; Belonging</div><p class="vi-text">Our classes are communities. Learners become friends, encourage each other, and celebrate together. Many graduates say the friendships were as life-changing as the literacy itself.</p></div></div>
+      <div class="vitem rv d4"><div class="vi-icon">⭐</div><div><div class="vi-title">Quality Without Compromise</div><p class="vi-text">Affordable does not mean second-rate. Our tutors are trained educators. Our materials are carefully designed for adult learners. Our approach is grounded in proven, phonics-based literacy methods.</p></div></div>
+      <div class="vitem rv d1"><div class="vi-icon">🔒</div><div><div class="vi-title">Privacy &amp; Confidentiality</div><p class="vi-text">Nothing that happens in our classrooms is shared outside them. Your enrolment, progress, and story belong to you alone — unless you choose to share them.</p></div></div>
+      <div class="vitem rv d2"><div class="vi-icon">💡</div><div><div class="vi-title">Lifelong Learning</div><p class="vi-text">We believe learning has no age limit. When learners graduate, we celebrate them — then encourage them to keep growing. Several graduates have gone on to earn WAEC equivalency certificates.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--cream-dk)">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:48px"><div class="slabel">The People Behind the Work</div><h2 class="stitle">Our <em>Leadership Team</em></h2><p class="ssub">Every member of our team came to Highflyer because they believe, deeply, that this work matters.</p></div>
+    <div class="g3">
+      <div class="card team-card rv d1">
+        <div class="team-img"><img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=200&h=200&auto=format&fit=crop&q=75" alt="Mrs. Adaeze Highflyer-Nwosu" loading="lazy"/></div>
+        <div class="team-name">Mrs. Adaeze Highflyer-Nwosu</div>
+        <div class="team-role">Founder &amp; Executive Director</div>
+        <p class="team-bio">A retired secondary school teacher with 22 years of classroom experience. She founded Highflyer after watching her mother struggle with illiteracy in a hospital corridor. B.Ed from UNIPORT; postgraduate certificate in Adult Literacy from the University of Ibadan.</p>
+      </div>
+      <div class="card team-card rv d2">
+        <div class="team-img"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&auto=format&fit=crop&q=75" alt="Mr. Ifeanyi Okoro" loading="lazy"/></div>
+        <div class="team-name">Mr. Ifeanyi Okoro</div>
+        <div class="team-role">Head of Curriculum &amp; Instruction</div>
+        <p class="team-bio">Designs all teaching materials and leads tutor training. Spent eight years with UNESCO's adult education programmes in West Africa before joining us. His methods are simple, warm, and remarkably effective for adult learners at every level.</p>
+      </div>
+      <div class="card team-card rv d3">
+        <div class="team-img"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&auto=format&fit=crop&q=75" alt="Miss Chioma Eze" loading="lazy"/></div>
+        <div class="team-name">Miss Chioma Eze</div>
+        <div class="team-role">Community Outreach Coordinator</div>
+        <p class="team-bio">Visits markets, churches, and community halls to reach adults who need us but don't know we exist. A trained social worker with a gift for making people feel seen and welcome long before they ever step into a classroom.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap-sm">
+    <div style="margin-bottom:48px"><div class="slabel">How Far We've Come</div><h2 class="stitle">A Journey Built <em>One Step at a Time</em></h2></div>
+    <div class="timeline">
+      <div class="tl-item rv d1"><div class="tl-year">2009</div><div class="tl-title">Highflyer opens behind Rumuola Baptist Church</div><div class="tl-sub">3 learners, 1 tutor, 2 plastic chairs, and a handmade blackboard.</div></div>
+      <div class="tl-item rv d2"><div class="tl-year">2011</div><div class="tl-title">First graduation — 28 learners receive certificates</div><div class="tl-sub">The church hall was full. Half the room was in tears.</div></div>
+      <div class="tl-item rv d3"><div class="tl-year">2014</div><div class="tl-title">Second centre opens in Eleme, expanding to oil-belt communities</div><div class="tl-sub">Supported by a grant from the Shell Foundation Nigeria.</div></div>
+      <div class="tl-item rv d1"><div class="tl-year">2017</div><div class="tl-title">500th learner enrolled — Mrs. Patience Amadi, age 71</div><div class="tl-sub">She read her name aloud at the ceremony and the crowd erupted.</div></div>
+      <div class="tl-item rv d2"><div class="tl-year">2020</div><div class="tl-title">WhatsApp learning launched during COVID-19 lockdown</div><div class="tl-sub">Over 200 learners continued via voice notes and printed worksheets.</div></div>
+      <div class="tl-item rv d3"><div class="tl-year">2022</div><div class="tl-title">Highflyer wins Rivers State NGO Impact Award for Education</div><div class="tl-sub">Recognised by the Rivers State government for outstanding community impact.</div></div>
+      <div class="tl-item rv d1"><div class="tl-year">2024</div><div class="tl-title">1,400th graduate — and this website goes live</div><div class="tl-sub">Because every step forward deserves to be celebrated properly.</div></div>
+    </div>
+  </div>
+</section>
+</div><!-- /about -->
+
+<!-- ================================================================ PROGRAMMES ================================================================ -->
+<div class="page" id="page-progs">
+<div class="ph ph-progs"><div class="ph-inner"><h1>Three Levels. One <em>Journey Forward.</em></h1><p>Designed specifically for adults — not children. Lessons fit around your work schedule, your family, and your pace. No rush. Only forward.</p></div></div>
+<section class="section">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:48px"><div class="slabel">Our Programmes</div><h2 class="stitle">Start Where You Are. <em>Go as Far as You Dream.</em></h2><p class="ssub">Not sure which level is right for you? Call us and we'll help decide — kindly and privately.</p></div>
+    <div style="margin-bottom:34px" class="rv">
+      <article class="prog-card">
+        <div class="prog-head"><img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=1200&auto=format&fit=crop&q=75" alt="Foundation Class" loading="lazy"/>
+          <div class="prog-overlay beg"><div style="margin-bottom:6px"><span class="badge badge-gold">Level 1 — Beginners</span></div><div class="prog-title">Foundation Class</div><div class="prog-tag">"The bravest thing you will ever do is walk through our door the first time."</div></div>
+        </div>
+        <div class="prog-body">
+          <p class="prog-desc">For those who have never attended school, attended briefly and remember very little, or tried to learn before without the right support. We begin at the very beginning — and there is nothing wrong with that. Most learners say starting Foundation Class was the single best decision of their adult life.</p>
+          <div class="prog-meta">
+            <div class="prog-mi">⏱️ <strong>Duration:</strong> 6 Months</div>
+            <div class="prog-mi">📅 <strong>Days:</strong> Mon &amp; Wed or Tue &amp; Thu</div>
+            <div class="prog-mi">🕕 <strong>Morning:</strong> 8:00–10:00 AM</div>
+            <div class="prog-mi">🌙 <strong>Evening:</strong> 5:30–7:30 PM</div>
+            <div class="prog-mi">👥 <strong>Class Size:</strong> Max 12</div>
+            <div class="prog-mi">💰 <strong>Fee:</strong> Affordable monthly — disclosed on enquiry</div>
+          </div>
+          <div style="margin-bottom:20px"><h4 style="font-size:.79rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:12px">What You Will Learn</h4>
+          <ul class="cklist"><li>The 26 letters of the English alphabet — upper and lower case</li><li>Letter sounds and how they combine to form words (phonics)</li><li>Recognising your own name and common everyday words</li><li>Counting numbers 1–100 and basic number recognition</li><li>Reading simple signs: Exit, Danger, Men/Women, Open/Closed</li><li>Writing your name, address, and date of birth</li><li>Basic conversational phrases for everyday Nigerian situations</li></ul></div>
+          <div class="prog-outcome"><p>By the end of Foundation Class, you will read simple sentences, write basic personal information, and communicate in short, clear English sentences — ready and genuinely confident for Builder's Class.</p></div>
+          <button class="btn btn-gold" onclick="go('enrol')">Enquire About Foundation Class →</button>
+        </div>
+      </article>
+    </div>
+    <div style="margin-bottom:34px" class="rv">
+      <article class="prog-card">
+        <div class="prog-head"><img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=1200&auto=format&fit=crop&q=75" alt="Builder's Class" loading="lazy"/>
+          <div class="prog-overlay int"><div style="margin-bottom:6px"><span class="badge badge-blue">Level 2 — Intermediate</span></div><div class="prog-title">Builder's Class</div><div class="prog-tag">"You know the letters. Now let them become words. Let words become your power."</div></div>
+        </div>
+        <div class="prog-body">
+          <p class="prog-desc">For learners who know some letters and words but struggle with full sentences, longer texts, or communicating clearly in English. Perhaps you attended school briefly as a child, or have been practising alone. We take what you already know and build on it — steadily and surely.</p>
+          <div class="prog-meta">
+            <div class="prog-mi">⏱️ <strong>Duration:</strong> 8 Months</div>
+            <div class="prog-mi">📅 <strong>Days:</strong> Mon &amp; Wed or Tue &amp; Thu</div>
+            <div class="prog-mi">🕕 <strong>Morning:</strong> 8:00–10:00 AM</div>
+            <div class="prog-mi">🌙 <strong>Evening:</strong> 5:30–7:30 PM</div>
+            <div class="prog-mi">👥 <strong>Class Size:</strong> Max 15</div>
+            <div class="prog-mi">💰 <strong>Fee:</strong> Affordable monthly — disclosed on enquiry</div>
+          </div>
+          <div style="margin-bottom:20px"><h4 style="font-size:.79rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:12px">What You Will Learn</h4>
+          <ul class="cklist"><li>Reading short paragraphs and understanding their meaning</li><li>Writing complete sentences and short paragraphs in your own words</li><li>Reading and completing common forms — hospital, bank, school</li><li>Understanding text messages, receipts, and official letters</li><li>Spelling common everyday words correctly and consistently</li><li>Telling the time, reading a calendar, and understanding important dates</li><li>Speaking in full sentences with correct grammar in everyday situations</li><li>Basic arithmetic — adding, subtracting, and managing personal money</li></ul></div>
+          <div class="prog-outcome"><p>By the end of Builder's Class, you will read a short newspaper article, write a complete paragraph, fill your own official documents without help, and hold a confident basic conversation with strangers and professionals.</p></div>
+          <button class="btn btn-blue" onclick="go('enrol')">Enquire About Builder's Class →</button>
+        </div>
+      </article>
+    </div>
+    <div class="rv">
+      <article class="prog-card">
+        <div class="prog-head"><img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=1200&auto=format&fit=crop&q=75" alt="Expression Class" loading="lazy"/>
+          <div class="prog-overlay adv"><div style="margin-bottom:6px"><span class="badge badge-green">Level 3 — Advanced</span></div><div class="prog-title">Expression Class</div><div class="prog-tag">"You have learned the basics. Now use them to speak, write, and lead with confidence."</div></div>
+        </div>
+        <div class="prog-body">
+          <p class="prog-desc">For adults who can read and write basic things but want to go much further. Perhaps you can write a short message but struggle with longer documents. Perhaps you feel nervous in formal settings — a government office, your child's school, a job interview. This class takes your literacy from functional to genuinely confident.</p>
+          <div class="prog-meta">
+            <div class="prog-mi">⏱️ <strong>Duration:</strong> 10 Months</div>
+            <div class="prog-mi">📅 <strong>Days:</strong> Mon &amp; Wed or Tue &amp; Thu</div>
+            <div class="prog-mi">🕕 <strong>Morning:</strong> 8:00–10:00 AM</div>
+            <div class="prog-mi">🌙 <strong>Evening:</strong> 5:30–7:30 PM</div>
+            <div class="prog-mi">👥 <strong>Class Size:</strong> Max 18</div>
+            <div class="prog-mi">💰 <strong>Fee:</strong> Affordable monthly — disclosed on enquiry</div>
+          </div>
+          <div style="margin-bottom:20px"><h4 style="font-size:.79rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:12px">What You Will Learn</h4>
+          <ul class="cklist"><li>Reading newspapers, government notices, contracts, and longer documents</li><li>Writing formal and informal letters — complaints, requests, applications</li><li>Effective oral communication — presenting ideas clearly in group settings</li><li>Professional phone conversations — confident and clear</li><li>Digital literacy basics — WhatsApp, using a smartphone effectively</li><li>Business writing — invoices, receipts, basic business correspondence</li><li>Public speaking and confidence-building exercises</li><li>Understanding your rights as a citizen, patient, and worker</li><li>Preparation for further education or vocational training</li></ul></div>
+          <div class="prog-outcome"><p>Graduates of Expression Class leave with full communication skills to navigate life confidently — advocating for themselves professionally, building businesses, and supporting their children's education. Several have earned WAEC equivalency certificates.</p></div>
+          <button class="btn btn-green" onclick="go('enrol')">Enquire About Expression Class →</button>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+<section class="section" style="background:var(--cream-dk)">
+  <div class="wrap">
+    <div class="g2" style="gap:30px;align-items:start;margin-bottom:44px">
+      <div class="fee-note rv-l">
+        <h3>Our Fee Structure</h3>
+        <p>We believe in transparent, honest pricing. Our classes run on affordable monthly tuition fees that allow us to pay trained tutors, provide quality materials, and keep our centres open. Fees are shared with you privately when you enquire — because every person's situation is different, and we never want fees to be a reason someone doesn't come.</p>
+        <p style="margin-top:10px;color:var(--muted);font-size:.92rem">Sponsorship opportunities are available for learners who genuinely cannot afford the fee.</p>
+        <button class="btn btn-gold" onclick="go('enrol')" style="margin-top:16px">Enquire About Fees →</button>
+      </div>
+      <div class="card rv-r" style="border-top:5px solid var(--green)">
+        <div style="font-size:2rem;margin-bottom:12px">🤲</div>
+        <h3 style="font-family:var(--head);font-size:1.32rem;color:var(--blue-dk);margin-bottom:11px">Sponsorship Programme</h3>
+        <p style="color:var(--muted);line-height:1.82;margin-bottom:14px">Know a learner who wants to study but cannot afford the monthly fee? Through our partnership and sponsorship programme, individuals, churches, businesses, and community groups can sponsor a learner's monthly tuition — giving someone the gift of literacy.</p>
+        <ul class="cklist"><li>Sponsor a learner's monthly tuition directly</li><li>Corporate CSR partnership packages available</li><li>Community groups can refer and sponsor their members</li><li>Regular updates on your sponsored learner's progress</li></ul>
+        <button class="btn btn-outline" onclick="go('involve')">Learn About Sponsorship →</button>
+      </div>
+    </div>
+    <div style="background:#fff;border-radius:var(--rad);overflow:hidden;box-shadow:var(--shadow)" class="rv">
+      <div style="overflow-x:auto"><table class="dtable">
+        <thead><tr><th>Programme</th><th>Days</th><th>Morning</th><th>Evening</th><th>Location</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Foundation Class</strong></td><td>Mon / Wed</td><td>8:00–10:00 AM</td><td>5:30–7:30 PM</td><td>Rumuola Centre</td><td><span class="badge badge-green">Enrolling</span></td></tr>
+          <tr><td><strong>Foundation Class</strong></td><td>Tue / Thu</td><td>8:00–10:00 AM</td><td>5:30–7:30 PM</td><td>Eleme Centre</td><td><span class="badge badge-green">Enrolling</span></td></tr>
+          <tr><td><strong>Builder's Class</strong></td><td>Mon / Wed</td><td>10:30 AM–12:30 PM</td><td>5:30–7:30 PM</td><td>Rumuola Centre</td><td><span class="badge badge-green">Enrolling</span></td></tr>
+          <tr><td><strong>Builder's Class</strong></td><td>Saturday</td><td>9:00 AM–1:00 PM</td><td>—</td><td>Rumuola Centre</td><td><span class="badge" style="background:rgba(192,57,43,.1);color:#c0392b">Almost Full</span></td></tr>
+          <tr><td><strong>Expression Class</strong></td><td>Tue / Thu</td><td>10:30 AM–12:30 PM</td><td>5:30–7:30 PM</td><td>Rumuola Centre</td><td><span class="badge badge-green">Enrolling</span></td></tr>
+        </tbody>
+      </table></div>
+    </div>
+    <div style="text-align:center;margin-top:30px"><button class="btn btn-gold btn-lg" onclick="go('enrol')">Enquire &amp; Reserve Your Place</button></div>
+  </div>
+</section>
+</div><!-- /progs -->
+
+<!-- ================================================================ STORIES ================================================================ -->
+<div class="page" id="page-stories">
+<div class="ph ph-stories"><div class="ph-inner"><h1>Real People. <em>Real Change.</em></h1><p>Every one of these stories belongs to a person who was told — by life, by circumstance, or by silence — that literacy was not for them. They proved that completely wrong.</p></div></div>
+<section class="section">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:48px"><div class="slabel">Featured Stories</div><h2 class="stitle">The Words That <em>Changed Their Lives</em></h2></div>
+    <div class="g2" style="gap:28px;margin-bottom:60px">
+      <article class="story-card rv d1">
+        <div class="story-head"><div class="story-avi">👩🏿</div><div><div class="story-pname">Mrs. Ngozi Amaechi</div><div class="story-pdet">Age 54 · Trader, Rumuola Market · Graduated 2023</div><div class="story-badges"><span class="badge badge-gold">Foundation → Builder's</span></div></div></div>
+        <div class="story-body"><div class="first-word"><span>The First Word She Ever Read</span><strong>"MARKET"</strong></div><p class="story-text">"I spent 30 years selling pepper and tomatoes at Rumuola Market. Every day I walked past the sign that read RUMUOLA MARKET and thought it was just a shape — like a drawing. When I read it for the first time, I stood there for five minutes. People must have thought I was strange. I didn't care. I was reading my own market. I had been there 30 years and was finally seeing it for the very first time.<br><br>Now I keep a small notebook. Every day I write what I sold and how much money I made. My accounts are better than they have ever been. My daughter says I am now a proper businesswoman. I say — I always was. I just needed the tools."</p></div>
+      </article>
+      <article class="story-card rv d2">
+        <div class="story-head"><div class="story-avi">👨🏿</div><div><div class="story-pname">Mr. Emmanuel Dike</div><div class="story-pdet">Age 61 · Church Deacon · Intermediate Level 2024</div><div class="story-badges"><span class="badge badge-blue">Builder's Class</span></div></div></div>
+        <div class="story-body"><div class="first-word"><span>The First Thing He Ever Read Aloud</span><strong>Psalm 23:1</strong></div><p class="story-text">"I have been a deacon at my church for 22 years. Every Sunday I would say 'Amen' loudly so nobody would know I was not reading along. For 22 years I did this.<br><br>When I finally read Psalm 23 aloud at Highflyer — just with my tutor — I wept. Not sad tears. Something else entirely. Like a wall around my heart for my whole life had finally come down.<br><br>When the pastor asked me to read the scripture for the whole congregation three months later, I stood up and read it from the Bible with my own eyes and my own voice. The congregation clapped. They thought I was just emotional. They don't know what that moment truly meant. Only I know."</p></div>
+      </article>
+      <article class="story-card rv d3">
+        <div class="story-head"><div class="story-avi">👩🏿‍🦳</div><div><div class="story-pname">Mama Chidinma Okafor</div><div class="story-pdet">Age 67 · Retired · All Three Levels 2024</div><div class="story-badges"><span class="badge badge-green">Foundation → Expression</span></div></div></div>
+        <div class="story-body"><div class="first-word"><span>The First Letter She Ever Wrote</span><strong>"Dear Daughter..."</strong></div><p class="story-text">"My daughter lives in Lagos. For forty years, whenever she called I would talk — but I could never write to her. When I finished Expression Class, the first thing I did was write her a letter. In my own hand. In my own words.<br><br>I wrote: 'Dear daughter. I am writing this myself. I learned how at Highflyer. I am proud of myself and I want you to be proud too. Your mother.'<br><br>She called when she received it, crying so hard she couldn't speak for three minutes. When she finally spoke she said — 'Mama, I framed it. I put it on my wall.' That letter is on her wall in Lagos right now. I wrote it. Me. At 67 years old."</p></div>
+      </article>
+      <article class="story-card rv d4">
+        <div class="story-head"><div class="story-avi">👨🏿‍🦲</div><div><div class="story-pname">Mr. Sunday Nwachukwu</div><div class="story-pdet">Age 45 · Bricklayer · Foundation Class 2024</div><div class="story-badges"><span class="badge badge-gold">Foundation Class</span></div></div></div>
+        <div class="story-body"><div class="first-word"><span>The First Sign He Ever Read</span><strong>"DANGER"</strong></div><p class="story-text">"I work on construction sites. There are warning signs everywhere. For twenty years, I had to wait for someone to tell me what they said. I was afraid sometimes that I had missed something that could hurt me or a colleague.<br><br>When I read the word DANGER on my own for the first time, I didn't feel proud. I felt safe. For the first time in twenty years on a building site, I felt genuinely safe.<br><br>My children are in school now. When they come home with homework, I sit with them and read it. Not do it for them — that is their job. But I can sit with them and read it. That was all I ever wanted."</p></div>
+      </article>
+    </div>
+    <div class="center" style="margin-bottom:36px"><div class="slabel">Graduate Achievement Wall</div><h2 class="stitle">1,400+ Lives <em>Changed Forever</em></h2><p class="ssub">Every tile is a person who said "yes" when the world had never asked them that question before.</p></div>
+    <div class="grad-wall">
+      <div class="grad-tile rv d1"><i>🎓</i><div class="grad-tile-n">Mrs. A. Amadi</div><div class="grad-tile-y">2024</div></div>
+      <div class="grad-tile rv d2"><i>🎓</i><div class="grad-tile-n">Mr. C. Obi</div><div class="grad-tile-y">2024</div></div>
+      <div class="grad-tile rv d3"><i>🎓</i><div class="grad-tile-n">Mama P. Eze</div><div class="grad-tile-y">2023</div></div>
+      <div class="grad-tile rv d1"><i>🎓</i><div class="grad-tile-n">Mr. J. Ikenna</div><div class="grad-tile-y">2023</div></div>
+      <div class="grad-tile rv d2"><i>🎓</i><div class="grad-tile-n">Mrs. B. Opara</div><div class="grad-tile-y">2023</div></div>
+      <div class="grad-tile rv d3"><i>🎓</i><div class="grad-tile-n">Mr. E. Nwosu</div><div class="grad-tile-y">2022</div></div>
+      <div class="grad-tile rv d1"><i>🎓</i><div class="grad-tile-n">Mrs. R. Duru</div><div class="grad-tile-y">2022</div></div>
+      <div class="grad-tile rv d2"><i>🎓</i><div class="grad-tile-n">Bro. F. Okafor</div><div class="grad-tile-y">2022</div></div>
+      <div class="grad-tile rv d3"><i>🎓</i><div class="grad-tile-n">Mrs. T. Ogele</div><div class="grad-tile-y">2021</div></div>
+      <div class="grad-tile rv d1"><i>🎓</i><div class="grad-tile-n">Mr. H. Uchenna</div><div class="grad-tile-y">2021</div></div>
+      <div class="grad-tile rv d2"><i>🎓</i><div class="grad-tile-n">Mrs. K. Chima</div><div class="grad-tile-y">2021</div></div>
+      <div class="grad-tile rv d3"><i>🎓</i><div class="grad-tile-n">Mr. L. Bassey</div><div class="grad-tile-y">2020</div></div>
+      <div class="grad-tile rv d1"><i>🎓</i><div class="grad-tile-n">Mama N. Briggs</div><div class="grad-tile-y">2020</div></div>
+      <div class="grad-tile rv d2"><i>🎓</i><div class="grad-tile-n">Mr. O. Nnachi</div><div class="grad-tile-y">2020</div></div>
+      <div class="grad-tile rv d3"><i>🎓</i><div class="grad-tile-n">+ 1,386 More</div><div class="grad-tile-y">2009–2019</div></div>
+    </div>
+  </div>
+</section>
+<section class="section-sm" style="background:var(--blue-dk)">
+  <div class="wrap" style="text-align:center">
+    <h2 style="font-family:var(--head);font-size:clamp(1.8rem,3.5vw,2.5rem);color:#fff;margin-bottom:13px">Your Story Could Be Next</h2>
+    <p style="color:rgba(255,255,255,.72);font-size:1rem;margin-bottom:28px;max-width:500px;margin-left:auto;margin-right:auto">Every person on this wall once stood exactly where you are. They took one step. That step changed everything.</p>
+    <button class="btn btn-gold btn-lg" onclick="go('enrol')">Begin My Story →</button>
+  </div>
+</section>
+</div><!-- /stories -->
+
+<!-- ================================================================ ENROLMENT ================================================================ -->
+<div class="page" id="page-enrol">
+<div class="ph ph-enrol"><div class="ph-inner"><h1>Enquire &amp; Start Your Journey Today</h1><p>Fill in the form and we will contact you within 24 hours to discuss the right programme, the schedule, and the monthly fee. No obligation. No pressure.</p></div></div>
+<section class="section">
+  <div class="wrap">
+    <div class="g2" style="gap:44px;align-items:start">
+      <div class="rv-l">
+        <div class="fbox">
+          <div style="margin-bottom:28px">
+            <div class="slabel">Enquiry &amp; Enrolment</div>
+            <h2 style="font-family:var(--head);font-size:1.72rem;color:var(--blue-dk)">Register Your Interest</h2>
+            <p style="color:var(--muted);font-size:.89rem;margin-top:7px;line-height:1.7">All information is completely private. Monthly fees are shared with you personally when we contact you.</p>
+          </div>
+          <div class="frow">
+            <div class="fgroup"><label class="flabel" for="f-fn">First Name *</label><input type="text" class="finput" id="f-fn" placeholder="e.g. Ngozi" autocomplete="given-name"/></div>
+            <div class="fgroup"><label class="flabel" for="f-ln">Last Name *</label><input type="text" class="finput" id="f-ln" placeholder="e.g. Amaechi" autocomplete="family-name"/></div>
+          </div>
+          <div class="fgroup"><label class="flabel" for="f-ph">Phone Number *</label><input type="tel" class="finput" id="f-ph" placeholder="e.g. 0801 234 5678" autocomplete="tel"/><p class="fhint">We will call or WhatsApp this number within 24 hours with fee details and next steps.</p></div>
+          <div class="frow">
+            <div class="fgroup"><label class="flabel" for="f-age">Age Range *</label><select class="fselect" id="f-age"><option value="">Select age range</option><option>18–25 years</option><option>26–35 years</option><option>36–45 years</option><option>46–55 years</option><option>56–65 years</option><option>66 years and above</option></select></div>
+            <div class="fgroup"><label class="flabel" for="f-gd">Gender *</label><select class="fselect" id="f-gd"><option value="">Select</option><option>Female</option><option>Male</option><option>Prefer not to say</option></select></div>
+          </div>
+          <div class="fgroup"><label class="flabel" for="f-pr">Which Programme? *</label><select class="fselect" id="f-pr"><option value="">Select a programme</option><option>Foundation Class (Beginners — never been to school)</option><option>Builder's Class (Intermediate — know some letters/words)</option><option>Expression Class (Advanced — can read basic things)</option><option>I'm not sure — please help me decide</option></select></div>
+          <div class="fgroup"><label class="flabel" for="f-ss">Preferred Session *</label><select class="fselect" id="f-ss"><option value="">Select</option><option>Morning Session (8:00–10:30 AM)</option><option>Evening Session (5:30–7:30 PM)</option><option>Saturday Only (9:00 AM–1:00 PM)</option><option>Any available session</option></select></div>
+          <div class="fgroup"><label class="flabel" for="f-ct">Preferred Centre *</label><select class="fselect" id="f-ct"><option value="">Select</option><option>Rumuola Centre, Port Harcourt</option><option>Eleme Centre</option><option>Either — whichever has space</option></select></div>
+          <div class="fgroup"><label class="flabel" for="f-sp">Do You Need Sponsorship Support?</label><select class="fselect" id="f-sp"><option value="">Select</option><option>No — I can pay the monthly fee</option><option>Yes — I need help with the fee</option><option>I would like to discuss options</option></select><p class="fhint">We have a sponsorship programme for learners who need fee support. All responses are treated with complete privacy.</p></div>
+          <div class="fgroup"><label class="flabel" for="f-nt">Anything Else? (Optional)</label><textarea class="ftextarea" id="f-nt" placeholder="e.g. I work at the market on Thursdays. I have a young baby — can I bring her sometimes? I am nervous about starting..."></textarea></div>
+          <button class="btn btn-gold btn-block" onclick="submitEnrol()">✅ Submit Enquiry — We'll Contact You Within 24 Hours</button>
+        </div>
+      </div>
+      <div class="rv-r">
+        <div style="margin-bottom:24px">
+          <div class="slabel">Need Help Enquiring?</div>
+          <h3 style="font-family:var(--head);font-size:1.35rem;color:var(--blue-dk);margin-bottom:10px">We're One Call Away</h3>
+          <p style="color:var(--muted);font-size:.89rem;line-height:1.8;margin-bottom:16px">If filling this form is difficult, just call us or send a WhatsApp message. One of our staff will register your interest over the phone and tell you the fee. You can also walk into any of our centres — no appointment needed.</p>
+          <div style="display:flex;flex-direction:column;gap:9px;margin-bottom:28px">
+            <div class="cinfo"><div class="cinfo-icon">📞</div><div><div class="cinfo-label">Call or WhatsApp</div><div class="cinfo-val">+234 801 234 5678</div><div class="cinfo-sub">Monday–Saturday, 8 AM–7 PM</div></div></div>
+            <div class="cinfo"><div class="cinfo-icon">📍</div><div><div class="cinfo-label">Walk-In Welcome</div><div class="cinfo-val">Rumuola Centre, Port Harcourt</div><div class="cinfo-sub">No appointment needed. Just show up.</div></div></div>
+          </div>
+        </div>
+        <h3 style="font-family:var(--head);font-size:1.2rem;color:var(--blue-dk);margin-bottom:16px">Frequently Asked Questions</h3>
+        <div class="faq" onclick="toggleFaq(this)"><div class="faq-q">How much does it cost? <span class="faq-arrow">▼</span></div><div class="faq-a">Our monthly fees are affordable and clearly explained when you enquire. We believe every learner deserves to know what they are committing to before they sign up. Contact us and we will give you the full breakdown, privately and without pressure.</div></div>
+        <div class="faq" onclick="toggleFaq(this)"><div class="faq-q">Can I get help with the fee? <span class="faq-arrow">▼</span></div><div class="faq-a">Yes. We have a sponsorship programme supported by individuals, churches, businesses, and community partners who pay the tuition of learners who cannot afford it. Tell us honestly when you enquire — your information is completely private and treated with full respect.</div></div>
+        <div class="faq" onclick="toggleFaq(this)"><div class="faq-q">Am I too old to learn? <span class="faq-arrow">▼</span></div><div class="faq-a">Absolutely not. Our oldest learner was 78 when she enrolled. The brain never fully loses its ability to learn — it just needs the right teacher and the right environment. We have taught people of every age.</div></div>
+        <div class="faq" onclick="toggleFaq(this)"><div class="faq-q">Will other people know I'm here? <span class="faq-arrow">▼</span></div><div class="faq-a">No. Your enrolment is completely confidential. We never share names or details of any learner with anyone outside Highflyer — not employers, not family, not community leaders. What happens at Highflyer stays at Highflyer.</div></div>
+        <div class="faq" onclick="toggleFaq(this)"><div class="faq-q">Can I bring my baby or young child? <span class="faq-arrow">▼</span></div><div class="faq-a">Yes. Many of our female learners are mothers with no childcare options. You are welcome to bring a quiet child. We have a small play area at the Rumuola Centre. Please mention it when you enquire so we can prepare.</div></div>
+        <div class="faq" onclick="toggleFaq(this)"><div class="faq-q">Do I receive a certificate when I finish? <span class="faq-arrow">▼</span></div><div class="faq-a">Yes! Every learner who completes a level receives an official Highflyer Adult Education Centre certificate. We hold a graduation ceremony at the end of each year where families are invited to celebrate together. It is one of the most joyful events you will ever attend.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+</div><!-- /enrol -->
+
+<!-- ================================================================ GET INVOLVED ================================================================ -->
+<div class="page" id="page-involve">
+<div class="ph ph-involve"><div class="ph-inner"><h1>This Work Belongs to <em>All of Us</em></h1><p>Highflyer exists because ordinary people decided that adult illiteracy was not someone else's problem. Whether you give your time, skills, or resources — you change real lives.</p></div></div>
+<section class="section">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:48px"><div class="slabel">Ways to Get Involved</div><h2 class="stitle">Find Your <em>Role in This Story</em></h2></div>
+    <div class="g3" style="margin-bottom:50px">
+      <div class="inv-card rv d1">
+        <div class="inv-img"><img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&auto=format&fit=crop&q=75" alt="Volunteer tutor" loading="lazy"/></div>
+        <div class="inv-body">
+          <div style="font-size:2.4rem;margin-bottom:9px">🧑‍🏫</div>
+          <div class="inv-title">Volunteer as a Tutor</div>
+          <div class="inv-tag">"You don't have to be a teacher. You just have to care."</div>
+          <p class="inv-text">Our tutors are the heart of everything we do. Many are not professional teachers — they are bankers, nurses, students, and retirees who give a few hours each week. We provide full training, all materials, and ongoing support.</p>
+          <ul class="cklist"><li>As little as 2 hours per week</li><li>Full free tutor training provided (2-day workshop)</li><li>All lesson plans and materials provided</li><li>Official reference letter after 6 months of service</li></ul>
+          <button class="btn btn-gold btn-block" onclick="go('contact')">Apply to Volunteer →</button>
+        </div>
+      </div>
+      <div class="inv-card rv d2">
+        <div class="inv-img"><img src="https://images.unsplash.com/photo-1560252829-804f1aedf1be?w=600&auto=format&fit=crop&q=75" alt="Corporate sponsorship" loading="lazy"/></div>
+        <div class="inv-body">
+          <div style="font-size:2.4rem;margin-bottom:9px">🏢</div>
+          <div class="inv-title">Sponsor a Learner</div>
+          <div class="inv-tag">"Pay one person's monthly tuition. Change one life. Completely."</div>
+          <p class="inv-text">Through our sponsorship programme, individuals, businesses, churches, and community groups pay the monthly tuition of a learner who cannot afford it. You give them the gift of literacy. That is not a small thing.</p>
+          <ul class="cklist"><li>Pay a learner's monthly tuition directly</li><li>Corporate CSR partnership packages available</li><li>Named sponsorship recognition if desired</li><li>Regular updates on your sponsored learner's progress</li></ul>
+          <button class="btn btn-blue btn-block" onclick="go('contact')">Enquire About Sponsorship →</button>
+        </div>
+      </div>
+      <div class="inv-card rv d3">
+        <div class="inv-img"><img src="https://images.unsplash.com/photo-1529390079861-591de354faf5?w=600&auto=format&fit=crop&q=75" alt="Community partnership" loading="lazy"/></div>
+        <div class="inv-body">
+          <div style="font-size:2.4rem;margin-bottom:9px">🤲</div>
+          <div class="inv-title">Community Partnership</div>
+          <div class="inv-tag">"Help us reach the people who need us most."</div>
+          <p class="inv-text">Churches, mosques, women's associations, market cooperatives, and community groups are some of our most powerful partners. If you know adults who struggle to read, connect them with us — we'll do everything else. We also come to your group for outreach talks.</p>
+          <ul class="cklist"><li>Free outreach talks and awareness sessions</li><li>Enrolment materials provided at no cost</li><li>We come to your meeting, service, or event</li><li>No cost and no paperwork — just community</li></ul>
+          <button class="btn btn-outline btn-block" onclick="go('contact')">Partner With Us →</button>
+        </div>
+      </div>
+    </div>
+    <div class="donate-box rv">
+      <h3>Make a Financial Contribution</h3>
+      <p>Your contribution goes directly to teaching materials, transport support for learners in distant communities, tutor training, and keeping our doors open. Every amount matters.</p>
+      <div class="d-amounts">
+        <div class="d-amt" onclick="pickAmt(this)"><div class="d-amt-n">₦5,000</div><div class="d-amt-l">Books for 2 learners</div></div>
+        <div class="d-amt" onclick="pickAmt(this)"><div class="d-amt-n">₦15,000</div><div class="d-amt-l">Supplies for a class</div></div>
+        <div class="d-amt" onclick="pickAmt(this)"><div class="d-amt-n">₦30,000</div><div class="d-amt-l">Sponsor 1 month tuition</div></div>
+        <div class="d-amt" onclick="pickAmt(this)"><div class="d-amt-n">₦120,000</div><div class="d-amt-l">Sponsor a full term</div></div>
+      </div>
+      <button class="btn btn-gold btn-lg" onclick="showBank()" style="position:relative;z-index:1">💛 Donate via Bank Transfer</button>
+      <p style="margin-top:13px;font-size:.81rem;color:rgba(255,255,255,.42);position:relative;z-index:1">Official receipt issued for all donations. Contact us for mobile money options.</p>
+    </div>
+  </div>
+</section>
+</div><!-- /involve -->
+
+<!-- ================================================================ NEWS ================================================================ -->
+<div class="page" id="page-news">
+<div class="ph ph-news"><div class="ph-inner"><h1>News, Stories &amp; <em>Free Resources</em></h1><p>Stay connected with Highflyer. Read our articles, download free practice materials, and find tips to support adult learners in your life.</p></div></div>
+<section class="section">
+  <div class="wrap">
+    <div style="margin-bottom:44px"><div class="slabel">Latest News</div><h2 class="stitle">What's Happening <em>at Highflyer</em></h2></div>
+    <div class="g2" style="margin-bottom:56px">
+      <article class="art-card rv d1">
+        <div class="art-img"><img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=600&auto=format&fit=crop&q=75" alt="2026 enrolment open" loading="lazy"/></div>
+        <div class="art-body"><div class="art-date">April 2026</div><div class="art-title">Our 2026 Intake Is Now Open — More Classes Than Ever Before</div><p class="art-ex">This year marks a significant expansion for Highflyer. We are adding Saturday morning sessions at Rumuola and opening a third Foundation cohort in Eleme. If you or someone you know has been waiting — this is the moment. Enquire early; places fill up quickly.</p><button class="btn btn-outline btn-sm">Read More →</button></div>
+      </article>
+      <article class="art-card rv d2">
+        <div class="art-img"><img src="https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?w=600&auto=format&fit=crop&q=75" alt="Award recognition" loading="lazy"/></div>
+        <div class="art-body"><div class="art-date">March 2026</div><div class="art-title">Highflyer Named Among Nigeria's Top 10 Adult Literacy Programmes</div><p class="art-ex">We are honoured — and a little emotional — to share that Highflyer has been recognised by ProLiteracy Africa as one of the ten most impactful adult literacy programmes in the country. This award belongs to every single person who walked through our doors.</p><button class="btn btn-outline btn-sm">Read More →</button></div>
+      </article>
+      <article class="art-card rv d3">
+        <div class="art-img"><img src="https://images.unsplash.com/photo-1529390079861-591de354faf5?w=600&auto=format&fit=crop&q=75" alt="Graduation 2025" loading="lazy"/></div>
+        <div class="art-body"><div class="art-date">December 2025</div><div class="art-title">Graduation Day 2025 — 143 New Graduates and One Unforgettable Evening</div><p class="art-ex">The hall was filled beyond capacity. Families came from as far as Bonny Island. When names were called and certificates handed over, grown men and women wept freely — and nobody was ashamed of a single tear. Here is a full recap of our most beautiful graduation yet.</p><button class="btn btn-outline btn-sm">Read More →</button></div>
+      </article>
+      <article class="art-card rv d4">
+        <div class="art-img"><img src="https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?w=600&auto=format&fit=crop&q=75" alt="Family support guide" loading="lazy"/></div>
+        <div class="art-body"><div class="art-date">November 2025</div><div class="art-title">How to Support the Adult Learner in Your Home: A Guide for Families</div><p class="art-ex">Learning to read as an adult requires extraordinary courage — and family support makes an enormous difference. Our tutors share simple, practical ways that families can encourage and celebrate their loved ones on a literacy journey. No special skills required. Just love and patience.</p><button class="btn btn-outline btn-sm">Read More →</button></div>
+      </article>
+    </div>
+    <div style="margin-bottom:44px"><div class="slabel">Free Downloads</div><h2 class="stitle">Practice Materials <em>Anyone Can Use</em></h2><p class="ssub">Free to download, print, and share. No credit or permission needed.</p></div>
+    <div style="display:flex;flex-direction:column;gap:11px;margin-bottom:52px">
+      <div class="res-card rv d1"><div class="res-icon">🔤</div><div><div class="res-title">The Highflyer Alphabet Practice Sheet</div><div class="res-desc">Upper and lower case letters with picture associations. Perfect for beginners. Print, trace, practise daily.</div></div><div class="res-dl" onclick="toast('Downloading: Alphabet Practice Sheet...')">⬇️</div></div>
+      <div class="res-card rv d2"><div class="res-icon">📝</div><div><div class="res-title">My First 100 Words — Sight Word Flash Cards</div><div class="res-desc">The 100 most common English words as printable flash cards. Ideal for Foundation Class learners to practise at home.</div></div><div class="res-dl" onclick="toast('Downloading: Sight Word Flash Cards...')">⬇️</div></div>
+      <div class="res-card rv d3"><div class="res-icon">📄</div><div><div class="res-title">How to Fill a Hospital Form — Guided Worksheet</div><div class="res-desc">A step-by-step worksheet for reading and completing a standard Nigerian hospital registration form. Practical and life-useful.</div></div><div class="res-dl" onclick="toast('Downloading: Hospital Form Worksheet...')">⬇️</div></div>
+      <div class="res-card rv d1"><div class="res-icon">🗣️</div><div><div class="res-title">Everyday English Phrases — Market, Hospital, School</div><div class="res-desc">Common phrases for three everyday Nigerian situations. For Intermediate and Advanced learners building spoken confidence.</div></div><div class="res-dl" onclick="toast('Downloading: Everyday Phrases Guide...')">⬇️</div></div>
+      <div class="res-card rv d2"><div class="res-icon">📖</div><div><div class="res-title">Mama Reads — A Short Story for Adult Learners</div><div class="res-desc">A 4-page illustrated short story for adult readers at Foundation-to-Intermediate level. Simple sentences. Big meaning.</div></div><div class="res-dl" onclick="toast('Downloading: Mama Reads Story...')">⬇️</div></div>
+    </div>
+    <div class="cta-banner rv">
+      <h2>Get Our Monthly Newsletter</h2>
+      <p>Learner stories, literacy tips, upcoming events, and free resources — delivered by WhatsApp or email each month.</p>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1">
+        <input type="text" class="finput" id="nl-input" style="max-width:300px;border-radius:50px" placeholder="Your phone number or email"/>
+        <button class="btn btn-blue" onclick="submitNewsletter()">Subscribe Free</button>
+      </div>
+    </div>
+  </div>
+</section>
+</div><!-- /news -->
+
+<!-- ================================================================ GAMES ================================================================ -->
+<div class="page" id="page-games">
+<div class="ph ph-games"><div class="ph-inner"><h1>Practise Reading with <em>Fun Games</em></h1><p>Simple games to practise letters, sounds, and words between classes. No login. No download. Just tap and learn right now.</p></div></div>
+<section class="section">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:48px"><div class="slabel">Free Literacy Mini-Games</div><h2 class="stitle">Learning Through <em>Play</em></h2><p class="ssub">All three games work on your phone. Pick one and start practising right now.</p></div>
+    <div class="g3" style="margin-bottom:56px">
+      <div class="game-card rv d1">
+        <div class="game-header">
+          <div class="game-title">🔤 Letter Sound Match</div>
+          <p class="game-desc">Listen to the sound and pick the right letter. Great for beginners learning the alphabet for the first time.</p>
+          <div style="display:flex;justify-content:space-between;align-items:center"><span class="score-chip">Score: <span id="g1-score">0</span></span><button class="btn btn-sm btn-blue" onclick="g1Reset()">New Game</button></div>
+        </div>
+        <div class="game-body"><div class="game-area"><p style="font-size:.87rem;color:var(--muted)">Which letter makes this sound?</p><div style="font-size:2rem;font-weight:800;color:var(--blue-dk);font-family:var(--head)" id="g1-sound">—</div><div class="opts-row" id="g1-opts"></div></div><p style="font-size:.78rem;color:var(--muted);text-align:center" id="g1-msg">Press New Game to start!</p></div>
+      </div>
+      <div class="game-card rv d2">
+        <div class="game-header">
+          <div class="game-title">📝 Fill the Missing Letter</div>
+          <p class="game-desc">A common word has one letter missing. Can you guess which letter belongs in the blank?</p>
+          <div style="display:flex;justify-content:space-between;align-items:center"><span class="score-chip">Score: <span id="g2-score">0</span></span><button class="btn btn-sm btn-blue" onclick="g2Reset()">New Word</button></div>
+        </div>
+        <div class="game-body"><div class="game-area"><p style="font-size:.87rem;color:var(--muted)">What letter is missing?</p><div class="word-disp" id="g2-word">—</div><div class="opts-row" id="g2-opts"></div></div><p style="font-size:.78rem;color:var(--muted);text-align:center" id="g2-msg">Press New Word to start!</p></div>
+      </div>
+      <div class="game-card rv d3">
+        <div class="game-header">
+          <div class="game-title">🖼️ Word &amp; Picture Match</div>
+          <p class="game-desc">You see a picture. Which word matches what you see? Perfect for building reading vocabulary.</p>
+          <div style="display:flex;justify-content:space-between;align-items:center"><span class="score-chip">Score: <span id="g3-score">0</span></span><button class="btn btn-sm btn-blue" onclick="g3Reset()">New Round</button></div>
+        </div>
+        <div class="game-body"><div class="game-area"><div style="font-size:3.8rem" id="g3-pic">—</div><p style="font-size:.87rem;color:var(--muted)">Which word matches the picture?</p><div class="opts-row" id="g3-opts"></div></div><p style="font-size:.78rem;color:var(--muted);text-align:center" id="g3-msg">Press New Round to start!</p></div>
+      </div>
+    </div>
+    <div class="g3" style="margin-bottom:44px">
+      <div class="card rv d1" style="text-align:center;padding:28px 20px"><div style="font-size:2.3rem;margin-bottom:11px">🕐</div><h4 style="font-family:var(--head);color:var(--blue-dk);margin-bottom:8px;font-size:1rem">10 Minutes a Day</h4><p style="font-size:.89rem;color:var(--muted);line-height:1.75">Ten minutes of daily practice is worth more than two hours once a week. Play while waiting in a queue or before bed.</p></div>
+      <div class="card rv d2" style="text-align:center;padding:28px 20px"><div style="font-size:2.3rem;margin-bottom:11px">🔊</div><h4 style="font-family:var(--head);color:var(--blue-dk);margin-bottom:8px;font-size:1rem">Say It Out Loud</h4><p style="font-size:.89rem;color:var(--muted);line-height:1.75">When you see a letter or word, say it aloud — even when alone. Hearing yourself say it helps your brain remember it faster.</p></div>
+      <div class="card rv d3" style="text-align:center;padding:28px 20px"><div style="font-size:2.3rem;margin-bottom:11px">🤸</div><h4 style="font-family:var(--head);color:var(--blue-dk);margin-bottom:8px;font-size:1rem">Wrong Answers Help</h4><p style="font-size:.89rem;color:var(--muted);line-height:1.75">Nobody gets every answer right the first time. That is the whole point of practising. Be kind to yourself and keep going.</p></div>
+    </div>
+    <div class="cta-banner rv"><h2>Want to Learn Even More?</h2><p>These games are just a taste. In our actual classes, you get a real tutor, real classmates, and a real certificate. Come and see what is possible.</p><button class="btn btn-blue btn-lg" onclick="go('enrol')" style="position:relative;z-index:1">Enquire About Real Classes →</button></div>
+  </div>
+</section>
+</div><!-- /games -->
+
+<!-- ================================================================ CONTACT ================================================================ -->
+<div class="page" id="page-contact">
+<div class="ph ph-contact"><div class="ph-inner"><h1>We're Easy to <em>Reach</em></h1><p>Call us. Walk in. Send a WhatsApp. However you prefer to communicate — we are here and always glad to hear from you.</p></div></div>
+<section class="section">
+  <div class="wrap">
+    <div class="g2" style="gap:44px;align-items:start">
+      <div class="rv-l">
+        <div class="slabel">Contact Information</div>
+        <h2 class="stitle" style="font-size:1.72rem">How to <em>Find Us</em></h2>
+        <p style="color:var(--muted);margin-bottom:24px;line-height:1.82">Whether you want to enquire, volunteer, sponsor a learner, or simply find out more — we would love to hear from you.</p>
+        <div style="display:flex;flex-direction:column;gap:9px;margin-bottom:28px">
+          <div class="cinfo"><div class="cinfo-icon">📍</div><div><div class="cinfo-label">Main Centre</div><div class="cinfo-val">Highflyer Adult Education Centre</div><div class="cinfo-sub">Behind Rumuola Baptist Church, Rumuola Road, Port Harcourt, Rivers State</div></div></div>
+          <div class="cinfo"><div class="cinfo-icon">📍</div><div><div class="cinfo-label">Eleme Centre</div><div class="cinfo-val">Highflyer Eleme Outreach Centre</div><div class="cinfo-sub">Beside Eleme Community Hall, Eleme, Rivers State</div></div></div>
+          <div class="cinfo"><div class="cinfo-icon">📞</div><div><div class="cinfo-label">Phone &amp; WhatsApp</div><div class="cinfo-val">+234 801 234 5678</div><div class="cinfo-sub">Monday–Saturday, 8:00 AM–7:00 PM</div></div></div>
+          <div class="cinfo"><div class="cinfo-icon">📧</div><div><div class="cinfo-label">Email</div><div class="cinfo-val">hello@highflyeraec.org</div><div class="cinfo-sub">We reply within 24 hours on working days</div></div></div>
+          <div class="cinfo"><div class="cinfo-icon">🕐</div><div><div class="cinfo-label">Office Hours</div><div class="cinfo-val">Monday–Friday: 8:00 AM–6:00 PM</div><div class="cinfo-sub">Saturday: 8:00 AM–2:00 PM &nbsp;|&nbsp; Sunday: Closed</div></div></div>
+        </div>
+        <div class="img-box" style="height:260px">
+          <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=800&auto=format&fit=crop&q=75" alt="Port Harcourt" loading="lazy"/>
+          <div class="img-caption"><strong>📍 Rumuola, Port Harcourt, Rivers State</strong><span>Behind Rumuola Baptist Church, Rumuola Road</span></div>
+        </div>
+      </div>
+      <div class="fbox rv-r">
+        <div class="slabel">Send a Message</div>
+        <h3 style="font-family:var(--head);font-size:1.42rem;color:var(--blue-dk);margin-bottom:20px">We'd Love to Hear From You</h3>
+        <div class="fgroup"><label class="flabel" for="c-nm">Your Name *</label><input type="text" class="finput" id="c-nm" placeholder="e.g. Chukwuemeka Obi" autocomplete="name"/></div>
+        <div class="fgroup"><label class="flabel" for="c-ct">Phone or Email *</label><input type="text" class="finput" id="c-ct" placeholder="Phone number or email address"/></div>
+        <div class="fgroup"><label class="flabel" for="c-sb">I Am Enquiring About *</label><select class="fselect" id="c-sb"><option value="">Select a topic</option><option>Enrolling as a learner</option><option>Fee enquiry</option><option>Sponsoring a learner</option><option>Volunteering as a tutor</option><option>Corporate partnership / CSR</option><option>Community outreach or speaking at an event</option><option>General enquiry</option></select></div>
+        <div class="fgroup"><label class="flabel" for="c-mg">Your Message *</label><textarea class="ftextarea" id="c-mg" style="min-height:128px" placeholder="Tell us what's on your mind. No message is too short and no question is too simple."></textarea></div>
+        <button class="btn btn-blue btn-block" onclick="submitContact()">📨 Send Message</button>
+        <p style="font-size:.79rem;color:var(--muted);margin-top:11px;text-align:center">Or WhatsApp us directly: <strong>+234 801 234 5678</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section-sm" style="background:var(--blue-dk)">
+  <div class="wrap" style="text-align:center">
+    <p style="color:rgba(255,255,255,.68);margin-bottom:16px;font-size:.92rem">Follow us and share our work — you might reach someone who needs us today.</p>
+    <div style="display:flex;gap:13px;justify-content:center;flex-wrap:wrap">
+      <button class="btn btn-outline-w" onclick="toast('Opening: Facebook @HighflyerAEC')">📘 Facebook — @HighflyerAEC</button>
+      <button class="btn btn-outline-w" onclick="toast('Opening WhatsApp Community Group...')">💬 WhatsApp Community</button>
+      <button class="btn btn-outline-w" onclick="toast('Opening: YouTube — Learner Stories')">▶️ YouTube Stories</button>
+    </div>
+  </div>
+</section>
+</div><!-- /contact -->
+
+</main><!-- /main -->
+
+<!-- ================================================================ FOOTER ================================================================ -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div style="width:48px;height:48px;background:var(--gold);border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:var(--head);font-size:21px;font-weight:800;color:var(--blue-dk);margin-bottom:12px">H</div>
+      <h3>Highflyer Adult Education Centre</h3>
+      <p style="margin-bottom:14px">Teaching adults to read, write, and communicate with confidence since 2009. Rumuola, Port Harcourt, Rivers State, Nigeria.</p>
+      <p style="font-size:.79rem;font-style:italic;color:rgba(255,255,255,.38)">"It's never too late to learn to read."</p>
+    </div>
+    <div class="footer-col">
+      <h4>Programmes</h4>
+      <ul>
+        <li><a onclick="go('progs')">Foundation Class</a></li>
+        <li><a onclick="go('progs')">Builder's Class</a></li>
+        <li><a onclick="go('progs')">Expression Class</a></li>
+        <li><a onclick="go('progs')">Class Schedule</a></li>
+        <li><a onclick="go('enrol')" style="color:var(--gold-lt);font-weight:700">✏️ Enquire Now</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>About</h4>
+      <ul>
+        <li><a onclick="go('about')">Our Story</a></li>
+        <li><a onclick="go('about')">Mission &amp; Values</a></li>
+        <li><a onclick="go('about')">Leadership Team</a></li>
+        <li><a onclick="go('stories')">Learner Stories</a></li>
+        <li><a onclick="go('about')">Milestones</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Get Involved</h4>
+      <ul>
+        <li><a onclick="go('involve')">Volunteer as Tutor</a></li>
+        <li><a onclick="go('involve')">Sponsor a Learner</a></li>
+        <li><a onclick="go('involve')">Corporate Partnership</a></li>
+        <li><a onclick="go('news')">Free Resources</a></li>
+        <li><a onclick="go('games')">🎮 Literacy Games</a></li>
+        <li><a onclick="go('contact')">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Highflyer Adult Education Centre · All rights reserved · Port Harcourt, Rivers State, Nigeria</span>
+    <div class="footer-social">
+      <div class="soc-icon" onclick="toast('Facebook: @HighflyerAEC')">📘</div>
+      <div class="soc-icon" onclick="toast('WhatsApp Community Group')">💬</div>
+      <div class="soc-icon" onclick="toast('YouTube: Learner Stories Channel')">▶️</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+'use strict';
+
+/* ── NAVIGATION ── */
+const PAGES=['home','about','progs','stories','enrol','involve','news','games','contact'];
+function go(id){
+  PAGES.forEach(p=>{
+    const pg=document.getElementById('page-'+p);
+    const nv=document.getElementById('n-'+p);
+    if(pg)pg.classList.remove('active');
+    if(nv)nv.classList.remove('act');
+  });
+  const pg=document.getElementById('page-'+id);
+  const nv=document.getElementById('n-'+id);
+  if(pg){pg.classList.add('active');window.scrollTo({top:0,behavior:'smooth'});}
+  if(nv)nv.classList.add('act');
+  closeMenu();
+  if(speaking)toggleAudio();
+  setTimeout(checkReveal,120);
+  setTimeout(runCounters,250);
+}
+
+/* ── HAMBURGER ── */
+let menuOpen=false;
+function toggleMenu(){
+  menuOpen=!menuOpen;
+  document.getElementById('mobMenu').classList.toggle('open',menuOpen);
+  const b=document.getElementById('burger');
+  b.classList.toggle('open',menuOpen);
+  b.setAttribute('aria-expanded',String(menuOpen));
+}
+function closeMenu(){
+  menuOpen=false;
+  document.getElementById('mobMenu').classList.remove('open');
+  const b=document.getElementById('burger');
+  b.classList.remove('open');
+  b.setAttribute('aria-expanded','false');
+}
+
+/* ── TOAST ── */
+let toastTimer;
+function toast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.classList.add('on');
+  clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=>t.classList.remove('on'),4200);
+}
+function showBank(){
+  toast('Bank: GTBank · Account Name: Highflyer Adult Education Centre · Account No: 0123456789 · Thank you! 💛');
+}
+
+/* ── FAQ ── */
+function toggleFaq(el){el.classList.toggle('open');}
+
+/* ── FORMS ── */
+function submitEnrol(){
+  const fn=document.getElementById('f-fn').value.trim();
+  const ph=document.getElementById('f-ph').value.trim();
+  if(!fn){toast('⚠️ Please enter your first name.');document.getElementById('f-fn').focus();return;}
+  if(!ph){toast('⚠️ Please enter your phone number.');document.getElementById('f-ph').focus();return;}
+  toast('✅ Enquiry received for '+fn+'! We will contact you within 24 hours with fee details and next steps.');
+  ['f-fn','f-ln','f-ph','f-nt'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+}
+function submitContact(){
+  const nm=document.getElementById('c-nm').value.trim();
+  const mg=document.getElementById('c-mg').value.trim();
+  if(!nm){toast('⚠️ Please enter your name.');document.getElementById('c-nm').focus();return;}
+  if(!mg){toast('⚠️ Please write your message.');document.getElementById('c-mg').focus();return;}
+  toast('✅ Message sent! We will be in touch soon, '+nm+'.');
+  ['c-nm','c-ct','c-mg'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+}
+function submitNewsletter(){
+  const v=document.getElementById('nl-input').value.trim();
+  if(!v){toast('⚠️ Please enter your phone number or email.');return;}
+  toast('✅ Subscribed! You will receive our next newsletter soon.');
+  document.getElementById('nl-input').value='';
+}
+function pickAmt(el){document.querySelectorAll('.d-amt').forEach(a=>a.classList.remove('sel'));el.classList.add('sel');}
+
+/* ── AUDIO READ-ALOUD ── */
+let speaking=false,utt=null;
+function toggleAudio(){
+  const btn=document.getElementById('audioBtn');
+  if(speaking){
+    window.speechSynthesis.cancel();speaking=false;btn.textContent='▶ Read Page Aloud';
+  } else {
+    const pg=document.querySelector('.page.active');
+    const text=(pg?pg.innerText:'Welcome to Highflyer Adult Education Centre.').replace(/\s+/g,' ').substring(0,4000);
+    utt=new SpeechSynthesisUtterance(text);
+    utt.rate=0.86;utt.pitch=1.0;utt.lang='en-NG';
+    utt.onend=utt.onerror=()=>{speaking=false;btn.textContent='▶ Read Page Aloud';};
+    window.speechSynthesis.speak(utt);
+    speaking=true;btn.textContent='⏸ Stop Reading';
+  }
+}
+
+/* ── HERO SLIDESHOW ── */
+let slideIdx=0,slideTimer;
+function initSlider(){
+  const slides=document.querySelectorAll('.slide');
+  const dotsEl=document.getElementById('dots');
+  if(!slides.length||!dotsEl)return;
+  slides.forEach((_,i)=>{
+    const d=document.createElement('button');
+    d.className='hero-dot'+(i===0?' active':'');
+    d.setAttribute('aria-label','Slide '+(i+1));
+    d.onclick=()=>goSlide(i);
+    dotsEl.appendChild(d);
+  });
+  startSlider();
+}
+function goSlide(idx){
+  clearInterval(slideTimer);
+  const slides=document.querySelectorAll('.slide');
+  const dots=document.querySelectorAll('.hero-dot');
+  slides[slideIdx].classList.remove('active');
+  dots[slideIdx].classList.remove('active');
+  slideIdx=idx;
+  slides[slideIdx].classList.add('active');
+  dots[slideIdx].classList.add('active');
+  /* reset ken-burns */
+  slides[slideIdx].style.animation='none';
+  void slides[slideIdx].offsetHeight;
+  slides[slideIdx].style.animation='';
+  startSlider();
+}
+function startSlider(){
+  const slides=document.querySelectorAll('.slide');
+  slideTimer=setInterval(()=>goSlide((slideIdx+1)%slides.length),6000);
+}
+
+/* ── COUNTING STATS ── */
+function runCounters(){
+  document.querySelectorAll('.counter:not(.done)').forEach(el=>{
+    const rect=el.getBoundingClientRect();
+    if(rect.top>window.innerHeight)return;
+    el.classList.add('done');
+    const target=parseInt(el.getAttribute('data-target'),10);
+    const suffix=el.getAttribute('data-suffix')||'+';
+    const dur=2000;
+    const step=Math.ceil(target/(dur/16));
+    let cur=0;
+    const tick=()=>{
+      cur=Math.min(cur+step,target);
+      el.textContent=cur.toLocaleString()+(cur>=target?suffix:'');
+      if(cur<target)requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  });
+}
+
+/* ── SCROLL REVEAL ── */
+function checkReveal(){
+  const vh=window.innerHeight;
+  document.querySelectorAll('.rv:not(.vis),.rv-l:not(.vis),.rv-r:not(.vis)').forEach(el=>{
+    if(el.getBoundingClientRect().top<vh*0.93)el.classList.add('vis');
+  });
+  runCounters();
+}
+window.addEventListener('scroll',checkReveal,{passive:true});
+window.addEventListener('resize',checkReveal,{passive:true});
+
+/* ── GAMES DATA ── */
+const g1data=[
+  {s:'Aaa like Apple',c:'A',w:['B','C','D']},{s:'Buh like Ball',c:'B',w:['D','F','G']},
+  {s:'Kuh like Cat',c:'C',w:['A','G','K']},{s:'Duh like Dog',c:'D',w:['B','P','T']},
+  {s:'Eh like Egg',c:'E',w:['A','I','O']},{s:'Fuh like Fish',c:'F',w:['P','V','B']},
+  {s:'Guh like Goat',c:'G',w:['C','J','Q']},{s:'Huh like House',c:'H',w:['A','K','N']},
+  {s:'Ih like Ink',c:'I',w:['E','L','J']},{s:'Muh like Mango',c:'M',w:['N','W','H']},
+  {s:'Nuh like Name',c:'N',w:['M','H','R']},{s:'Oh like Orange',c:'O',w:['A','U','Q']},
+  {s:'Puh like Pen',c:'P',w:['B','D','Q']},{s:'Ruh like Rain',c:'R',w:['N','P','K']},
+  {s:'Suh like Sun',c:'S',w:['C','Z','X']},{s:'Tuh like Tree',c:'T',w:['D','F','L']},
+];
+let g1sc=0,g1q=null;
+function g1Reset(){
+  g1q=g1data[Math.floor(Math.random()*g1data.length)];
+  document.getElementById('g1-sound').textContent='"'+g1q.s+'"';
+  document.getElementById('g1-msg').textContent='Pick the correct letter:';
+  const opts=shuf([g1q.c,...g1q.w.slice(0,3)]);
+  const el=document.getElementById('g1-opts');el.innerHTML='';
+  opts.forEach(l=>{
+    const b=document.createElement('button');b.className='opt-btn';b.textContent=l;
+    b.onclick=()=>{
+      document.querySelectorAll('#g1-opts .opt-btn').forEach(x=>x.onclick=null);
+      if(l===g1q.c){b.classList.add('correct');g1sc++;document.getElementById('g1-score').textContent=g1sc;document.getElementById('g1-msg').textContent='✅ Correct! Well done!';}
+      else{b.classList.add('wrong');document.getElementById('g1-msg').textContent='❌ The answer was: '+g1q.c;document.querySelectorAll('#g1-opts .opt-btn').forEach(x=>{if(x.textContent===g1q.c)x.classList.add('correct');});}
+      setTimeout(g1Reset,1700);
+    };
+    el.appendChild(b);
+  });
+}
+
+const g2data=[
+  {w:'CAT',b:1,c:'A',x:['E','O','I']},{w:'DOG',b:1,c:'O',x:['A','U','I']},
+  {w:'PEN',b:1,c:'E',x:['A','I','O']},{w:'SUN',b:2,c:'N',x:['M','T','B']},
+  {w:'BUS',b:0,c:'B',x:['P','D','T']},{w:'MAP',b:2,c:'P',x:['B','T','K']},
+  {w:'CUP',b:1,c:'U',x:['A','O','E']},{w:'FAN',b:1,c:'A',x:['E','I','O']},
+  {w:'HAT',b:0,c:'H',x:['B','D','S']},{w:'JAM',b:2,c:'M',x:['N','B','T']},
+  {w:'LEG',b:1,c:'E',x:['A','I','O']},{w:'NET',b:0,c:'N',x:['M','B','T']},
+  {w:'POT',b:1,c:'O',x:['A','U','I']},{w:'RAT',b:1,c:'A',x:['E','O','I']},
+  {w:'TIN',b:1,c:'I',x:['A','E','U']},
+];
+let g2sc=0,g2q=null;
+function g2Reset(){
+  g2q=g2data[Math.floor(Math.random()*g2data.length)];
+  const letters=g2q.w.split('');
+  document.getElementById('g2-word').innerHTML=letters.map((ch,i)=>i===g2q.b?'<span class="blank">_</span>':ch).join('');
+  document.getElementById('g2-msg').textContent='Pick the missing letter:';
+  const opts=shuf([g2q.c,...g2q.x.slice(0,3)]);
+  const el=document.getElementById('g2-opts');el.innerHTML='';
+  opts.forEach(l=>{
+    const b=document.createElement('button');b.className='opt-btn';b.textContent=l;
+    b.onclick=()=>{
+      document.querySelectorAll('#g2-opts .opt-btn').forEach(x=>x.onclick=null);
+      if(l===g2q.c){b.classList.add('correct');g2sc++;document.getElementById('g2-score').textContent=g2sc;document.getElementById('g2-msg').textContent='✅ Yes! The word is '+g2q.w;document.getElementById('g2-word').textContent=g2q.w.split('').join(' ');}
+      else{b.classList.add('wrong');document.getElementById('g2-msg').textContent='❌ Answer: '+g2q.c+' → '+g2q.w;document.querySelectorAll('#g2-opts .opt-btn').forEach(x=>{if(x.textContent===g2q.c)x.classList.add('correct');});}
+      setTimeout(g2Reset,1700);
+    };
+    el.appendChild(b);
+  });
+}
+
+const g3data=[
+  {p:'🐱',w:'CAT',x:['DOG','RAT','COW']},{p:'🐶',w:'DOG',x:['CAT','PIG','HEN']},
+  {p:'☀️',w:'SUN',x:['SKY','STAR','MOON']},{p:'📚',w:'BOOK',x:['PEN','BAG','DESK']},
+  {p:'🍎',w:'APPLE',x:['MANGO','BANANA','PEAR']},{p:'🏠',w:'HOUSE',x:['ROOM','GATE','DOOR']},
+  {p:'🌊',w:'WATER',x:['RAIN','RIVER','SEA']},{p:'🐟',w:'FISH',x:['FROG','CRAB','BIRD']},
+  {p:'🌽',w:'CORN',x:['RICE','BEAN','YAM']},{p:'✋',w:'HAND',x:['FOOT','FACE','ARM']},
+  {p:'🔥',w:'FIRE',x:['HEAT','SMOKE','LIGHT']},{p:'🌳',w:'TREE',x:['LEAF','ROOT','STEM']},
+  {p:'🌙',w:'MOON',x:['STAR','SUN','NIGHT']},{p:'🐓',w:'CHICKEN',x:['TURKEY','DUCK','GOAT']},
+  {p:'🚶',w:'WALK',x:['RUN','JUMP','STAND']},
+];
+let g3sc=0,g3q=null;
+function g3Reset(){
+  g3q=g3data[Math.floor(Math.random()*g3data.length)];
+  document.getElementById('g3-pic').textContent=g3q.p;
+  document.getElementById('g3-msg').textContent='Which word matches the picture?';
+  const opts=shuf([g3q.w,...g3q.x.slice(0,3)]);
+  const el=document.getElementById('g3-opts');el.innerHTML='';
+  opts.forEach(w=>{
+    const b=document.createElement('button');b.className='opt-btn';b.textContent=w;
+    b.onclick=()=>{
+      document.querySelectorAll('#g3-opts .opt-btn').forEach(x=>x.onclick=null);
+      if(w===g3q.w){b.classList.add('correct');g3sc++;document.getElementById('g3-score').textContent=g3sc;document.getElementById('g3-msg').textContent='✅ Correct! '+g3q.p+' = '+g3q.w;}
+      else{b.classList.add('wrong');document.getElementById('g3-msg').textContent='❌ It was: '+g3q.w;document.querySelectorAll('#g3-opts .opt-btn').forEach(x=>{if(x.textContent===g3q.w)x.classList.add('correct');});}
+      setTimeout(g3Reset,1700);
+    };
+    el.appendChild(b);
+  });
+}
+
+function shuf(a){return [...a].sort(()=>Math.random()-.5);}
+
+/* ── INIT ── */
+window.addEventListener('load',()=>{
+  initSlider();
+  g1Reset();g2Reset();g3Reset();
+  checkReveal();
+  setTimeout(runCounters,700);
+});
+</script>
+</body>
+</html>

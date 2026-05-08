@@ -1,5 +1,52 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# robots.txt — Highflyer Adult Education Centre
+# https://godsguidedickson18-wq.github.io/highflyeraec/
+# ─────────────────────────────────────────────────────────────────────────────
+
+# Allow all well-behaved crawlers to index all pages
 User-agent: *
 Allow: /
 
-Sitemap: https://highflyeraec.github.io/sitemap.xml
+# Point crawlers to the sitemap
+Sitemap: https://godsguidedickson18-wq.github.io/highflyeraec/sitemap.xml
 
+# ── Specific crawler settings ─────────────────────────────────────────────────
+
+# Google — allow everything including images
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+# Bing
+User-agent: Bingbot
+Allow: /
+
+# ── Block bad bots ────────────────────────────────────────────────────────────
+# Block known scrapers and AI training crawlers that do not respect content
+
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: PetalBot
+Disallow: /
+
+# ── Crawl delay (optional) ────────────────────────────────────────────────────
+# Ask polite crawlers to space requests — prevents server strain on GitHub Pages
+Crawl-delay: 2

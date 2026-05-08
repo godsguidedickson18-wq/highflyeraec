@@ -1,37 +1,67 @@
-# =====================================================
-# Highflyer Adult Education Centre
-# GitHub Pages Configuration
-# =====================================================
+# ─────────────────────────────────────────────────────────────────────────────
+# Highflyer Adult Education Centre — GitHub Pages Configuration
+# ─────────────────────────────────────────────────────────────────────────────
 
-# Site identity
 title: "Highflyer Adult Education Centre"
-description: "Free adult literacy classes in Port Harcourt, Rivers State. Learn to read, write and communicate with confidence. Beginners, Intermediate and Advanced classes. Enrol today."
-url: "https://highflyeraec.github.io"
-baseurl: ""
+tagline: "Rise Above Limits."
+description: >
+  Affordable adult literacy classes in Port Harcourt, Rivers State, Nigeria.
+  Teaching adults to read, write, and communicate with confidence since 2022.
 
-# Author
+url: "https://godsguidedickson18-wq.github.io"
+baseurl: "/highflyeraec"
+
+# ── Site identity ──────────────────────────────────────────────────────────────
 author:
   name: "Highflyer Adult Education Centre"
   email: "hello@highflyeraec.org"
 
-# Language & locale
-lang: en-NG
-timezone: Africa/Lagos
+lang: "en-NG"
+timezone: "Africa/Lagos"
+encoding: "utf-8"
 
-# Build settings — pure HTML, disable Jekyll processing on main file
-plugins: []
+# ── Social ─────────────────────────────────────────────────────────────────────
+social:
+  facebook: "highflyeraec"
+  youtube:  "highflyeraec"
+  whatsapp: "2349068427526"
+
+# ── SEO & Open Graph defaults ──────────────────────────────────────────────────
+logo: "/highflyeraec/images/founder.jpeg"
+og_image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=1200&auto=format&fit=crop&q=80"
+
+# ── Build settings ─────────────────────────────────────────────────────────────
+# We use plain HTML — tell Jekyll not to process our files with Liquid
+plugins:
+  - jekyll-sitemap   # generates /sitemap.xml automatically (optional — we have our own)
+
+# Exclude files that should not be served publicly
 exclude:
   - README.md
+  - Gemfile
+  - Gemfile.lock
   - "*.sh"
-  - ".gitignore"
+  - ".github"
+  - "node_modules"
 
-# Defaults
-defaults:
-  - scope:
-      path: ""
-    values:
-      layout: null
+# Keep our handcrafted sitemap.xml and robots.txt as-is
+keep_files:
+  - sitemap.xml
+  - robots.txt
 
-# SEO
-google_analytics: ""   # Add your GA4 measurement ID here: G-XXXXXXXXXX
+# ── Collections (none — plain HTML site) ──────────────────────────────────────
+# No Jekyll collections needed. All pages are plain .html files.
+
+# ── Markdown (not used, but set for safety) ───────────────────────────────────
+markdown: kramdown
+kramdown:
+  input: GFM
+
+# ── Sass (not used — we use plain CSS) ───────────────────────────────────────
+# sass:
+#   style: compressed
+
+# ── Google Analytics ──────────────────────────────────────────────────────────
+# Uncomment and add your GA4 Measurement ID when ready:
+# google_analytics: "G-XXXXXXXXXX"
 

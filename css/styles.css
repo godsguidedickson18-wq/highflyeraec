@@ -50,9 +50,8 @@ input,select,textarea{font-family:var(--body)}
   padding:0 20px;display:flex;align-items:center;justify-content:space-between;
   box-shadow:0 2px 24px rgba(0,0,0,.28)}
 .nav-brand{display:flex;align-items:center;gap:12px;padding:12px 0;flex-shrink:0}
-.nav-logo{width:44px;height:44px;background:var(--gold);border-radius:11px;
-  display:flex;align-items:center;justify-content:center;font-family:var(--head);
-  font-size:21px;font-weight:800;color:var(--blue-dk);transition:transform .3s}
+.nav-logo{width:44px;height:44px;border-radius:11px;display:block;
+  object-fit:cover;transition:transform .3s;cursor:pointer;flex-shrink:0}
 .nav-logo:hover{transform:rotate(-5deg) scale(1.06)}
 .nav-name{color:#fff;font-family:var(--head);font-size:.97rem;font-weight:600;line-height:1.2}
 .nav-name span{display:block;font-size:.67rem;font-family:var(--body);font-weight:400;color:var(--gold-lt);letter-spacing:.04em}
@@ -470,4 +469,5 @@ footer{background:var(--blue-dk);color:rgba(255,255,255,.72);padding:58px 20px 2
 @media print{
   .audio-bar,.nav,.wa,.toast,.burger,.mob-menu,footer,.hero-dots,.art-modal{display:none!important}
   body{background:#fff;color:#000;font-size:12pt}
-}
+    }
+           

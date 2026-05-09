@@ -414,3 +414,55 @@ window.addEventListener('load', () => {
   if (document.getElementById('g1-opts')) { g1Reset(); g2Reset(); g3Reset(); }
   initArticleModal();
 });
+
+/* ── SERVICE WORKER REGISTRATION ── */
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/highflyeraec/sw.js', { scope: '/highflyeraec/' })
+      .then(reg => {
+        console.log('[Highflyer] Service worker registered. Scope:', reg.scope);
+
+        // Notify user when a new version of the site is available
+        reg.addEventListener('updatefound', () => {
+          const newSW = reg.installing;
+          newSW.addEventListener('statechange', () => {
+            if (newSW.state === 'installed' && navigator.serviceWorker.controller) {
+              toast('🔄 Site updated! Refresh for the latest version.');
+            }
+          });
+        });
+      })
+      .catch(err => console.warn('[Highflyer] Service worker registration failed:', err));
+  });
+}
+
+/* ── ONLINE / OFFLINE BANNER ── */
+function showConnBanner(online) {
+  let banner = document.getElementById('conn-banner');
+  if (!banner) {
+    banner = document.createElement('div');
+    banner.id = 'conn-banner';
+    banner.style.cssText = [
+      'position:fixed', 'top:0', 'left:0', 'right:0', 'z-index:99999',
+      'padding:10px 20px', 'text-align:center', 'font-size:.86rem',
+      'font-weight:700', 'font-family:var(--body)', 'transition:transform .35s ease',
+      'transform:translateY(-100%)'
+    ].join(';');
+    document.body.prepend(banner);
+  }
+  if (online) {
+    banner.style.background = '#2e7d52';
+    banner.style.color = '#fff';
+    banner.textContent = '✅ You are back online.';
+    banner.style.transform = 'translateY(0)';
+    setTimeout(() => { banner.style.transform = 'translateY(-100%)'; }, 3000);
+  } else {
+    banner.style.background = '#c0392b';
+    banner.style.color = '#fff';
+    banner.textContent = '📵 You are offline. Some pages may not load.';
+    banner.style.transform = 'translateY(0)';
+  }
+}
+window.addEventListener('online',  () => showConnBanner(true));
+window.addEventListener('offline', () => showConnBanner(false));
+                                                      

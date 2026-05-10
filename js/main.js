@@ -4,8 +4,8 @@
    Replace with your actual Formspree form IDs.
    1) Go to https://formspree.io  2) Sign up free
    3) Create two forms (Enquiry + Contact)  4) Paste each ID below         */
-const ENROL_FORM_ID   = 'YOUR_ENROL_FORM_ID';
-const CONTACT_FORM_ID = 'YOUR_CONTACT_FORM_ID';
+const ENROL_FORM_ID   = 'xnjwobkq';
+const CONTACT_FORM_ID = 'mykobdln';
 
 /* ── MOBILE MENU ── */
 let menuOpen = false;
@@ -465,4 +465,3 @@ function showConnBanner(online) {
 }
 window.addEventListener('online',  () => showConnBanner(true));
 window.addEventListener('offline', () => showConnBanner(false));
-   

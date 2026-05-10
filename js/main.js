@@ -1,11 +1,9 @@
 'use strict';
 
-/* ── FORMSPREE IDs ──────────────────────────────────────────────────────────
-   Replace with your actual Formspree form IDs.
-   1) Go to https://formspree.io  2) Sign up free
-   3) Create two forms (Enquiry + Contact)  4) Paste each ID below         */
-const ENROL_FORM_ID   = 'xnjwobkq';
-const CONTACT_FORM_ID = 'mykobdln';
+/* ── WEB3FORMS KEY ─────────────────────────────────────────────────────────
+   Single access key for all forms. Submissions go to your registered email.
+   Dashboard: https://web3forms.com                                         */
+const WEB3FORMS_KEY = '593cd81a-0de1-4c95-8573-3e3fe05597df';
 
 /* ── MOBILE MENU ── */
 let menuOpen = false;
@@ -35,6 +33,50 @@ function toast(msg) {
 }
 function showBank() {
   toast('GTBank · Account Name: Highflyer Adult Education Centre · Acct: YOUR_ACCOUNT_NUMBER · Thank you! 💛');
+}
+
+/* ── SUCCESS MESSAGE ── */
+function showSuccess(anchorId, name, isContact) {
+  const anchor = document.getElementById(anchorId);
+  if (!anchor) return;
+
+  // Remove any existing success box first
+  const old = document.getElementById('successBox');
+  if (old) old.remove();
+
+  const box = document.createElement('div');
+  box.id = 'successBox';
+  box.style.cssText = [
+    'display:flex', 'align-items:flex-start', 'gap:14px',
+    'background:#d1fae5', 'border:2px solid #059669',
+    'border-radius:10px', 'padding:18px 20px', 'margin-top:20px',
+    'font-family:var(--body)', 'animation:fadeInUp .4s ease'
+  ].join(';');
+
+  const icon = document.createElement('span');
+  icon.textContent = '✅';
+  icon.style.cssText = 'font-size:1.6rem;line-height:1;flex-shrink:0';
+
+  const text = document.createElement('div');
+  text.style.cssText = 'color:#065f46;line-height:1.55';
+
+  if (isContact) {
+    text.innerHTML = `<strong style="font-size:1.05rem">Message received, ${name}!</strong><br>
+      We will be in touch with you soon. If you need to reach us urgently, call or WhatsApp
+      <strong>+234 906 842 7526</strong>.`;
+  } else {
+    text.innerHTML = `<strong style="font-size:1.05rem">Enquiry received, ${name}!</strong><br>
+      Thank you for reaching out. A member of our team will contact you within 24 hours.
+      If you need to speak to us sooner, call or WhatsApp <strong>+234 906 842 7526</strong>.`;
+  }
+
+  box.appendChild(icon);
+  box.appendChild(text);
+  anchor.insertAdjacentElement('afterend', box);
+  box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+  // Auto-remove after 12 seconds
+  setTimeout(() => { if (box.parentNode) box.remove(); }, 12000);
 }
 
 /* ── FAQ ── */
@@ -128,25 +170,19 @@ function pickAmt(el) {
   el.classList.add('sel');
 }
 
-/* ── FORMSPREE HELPER ── */
-async function postToFormspree(formId, data) {
-  if (formId.startsWith('YOUR_')) return true; // demo mode
-
+/* ── WEB3FORMS HELPER ── */
+async function postToWeb3Forms(data) {
   try {
-    const res = await fetch('https://formspree.io/f/' + formId, {
+    const res = await fetch('https://api.web3forms.com/submit', {
       method:  'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body:    JSON.stringify(data)
+      body:    JSON.stringify({ access_key: WEB3FORMS_KEY, ...data })
     });
-
-    if (!res.ok) {
-      const json = await res.json().catch(() => ({}));
-      console.error('[Highflyer] Formspree error:', res.status, json);
-      return false;
-    }
-    return true;
+    const json = await res.json();
+    if (!json.success) console.error('[Highflyer] Web3Forms error:', json);
+    return json.success;
   } catch (err) {
-    console.error('[Highflyer] Formspree fetch failed:', err);
+    console.error('[Highflyer] Web3Forms fetch failed:', err);
     return false;
   }
 }
@@ -163,8 +199,9 @@ async function submitEnrol(e) {
   if (!pr) { toast('⚠️ Please select a programme.'); document.getElementById('f-pr').focus(); return; }
   const btn = document.getElementById('enrolSubmitBtn');
   btn.textContent = 'Sending…'; btn.disabled = true;
-  const ok = await postToFormspree(ENROL_FORM_ID, {
-    _subject:    `New Enquiry — ${fn} ${ln} | ${pr}`,
+
+  const ok = await postToWeb3Forms({
+    subject:     `New Enquiry — ${fn} ${ln} | ${pr}`,
     firstName:   fn,
     lastName:    ln,
     phone:       ph,
@@ -176,11 +213,12 @@ async function submitEnrol(e) {
     sponsorship: document.getElementById('f-sp').value,
     notes:       document.getElementById('f-nt').value.trim()
   });
+
   btn.textContent = '✅ Submit Enquiry — We\'ll Contact You Within 24 Hours';
   btn.disabled = false;
   if (ok) {
-    toast('✅ Enquiry received for ' + fn + '! We will contact you within 24 hours.');
     document.getElementById('enrolForm').reset();
+    showSuccess('enrolSubmitBtn', fn, false);
   } else {
     toast('⚠️ Could not send. Please call us on +234 906 842 7526.');
   }
@@ -198,18 +236,20 @@ async function submitContact(e) {
   if (!mg) { toast('⚠️ Please write your message.'); document.getElementById('c-mg').focus(); return; }
   const btn = document.getElementById('contactSubmitBtn');
   btn.textContent = 'Sending…'; btn.disabled = true;
-  const ok = await postToFormspree(CONTACT_FORM_ID, {
-    _subject: `Contact: ${sb || 'General Enquiry'} — ${nm}`,
-    _replyto: ct.includes('@') ? ct : '',   // set reply-to if email given
+
+  const ok = await postToWeb3Forms({
+    subject:  `Contact: ${sb || 'General Enquiry'} — ${nm}`,
+    replyto:  ct.includes('@') ? ct : '',
     name:     nm,
     contact:  ct,
-    subject:  sb,
+    topic:    sb,
     message:  mg
   });
+
   btn.textContent = '📨 Send Message'; btn.disabled = false;
   if (ok) {
-    toast('✅ Message sent! We will be in touch soon, ' + nm + '.');
     document.getElementById('contactForm').reset();
+    showSuccess('contactSubmitBtn', nm, true);
   } else {
     toast('⚠️ Could not send. Please call us on +234 906 842 7526.');
   }
@@ -437,8 +477,6 @@ if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/highflyeraec/sw.js', { scope: '/highflyeraec/' })
       .then(reg => {
         console.log('[Highflyer] Service worker registered. Scope:', reg.scope);
-
-        // Notify user when a new version of the site is available
         reg.addEventListener('updatefound', () => {
           const newSW = reg.installing;
           newSW.addEventListener('statechange', () => {
@@ -481,4 +519,4 @@ function showConnBanner(online) {
 }
 window.addEventListener('online',  () => showConnBanner(true));
 window.addEventListener('offline', () => showConnBanner(false));
-   
+         

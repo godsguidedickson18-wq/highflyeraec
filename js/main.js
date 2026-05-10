@@ -131,20 +131,31 @@ function pickAmt(el) {
 /* ── FORMSPREE HELPER ── */
 async function postToFormspree(formId, data) {
   if (formId.startsWith('YOUR_')) return true; // demo mode
+
   try {
     const res = await fetch('https://formspree.io/f/' + formId, {
-      method: 'POST',
+      method:  'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify(data)
+      body:    JSON.stringify(data)
     });
-    return res.ok;
-  } catch (e) { return false; }
+
+    if (!res.ok) {
+      const json = await res.json().catch(() => ({}));
+      console.error('[Highflyer] Formspree error:', res.status, json);
+      return false;
+    }
+    return true;
+  } catch (err) {
+    console.error('[Highflyer] Formspree fetch failed:', err);
+    return false;
+  }
 }
 
 /* ── ENQUIRY FORM (enrol.html) ── */
 async function submitEnrol(e) {
   e.preventDefault();
   const fn = document.getElementById('f-fn').value.trim();
+  const ln = document.getElementById('f-ln').value.trim();
   const ph = document.getElementById('f-ph').value.trim();
   const pr = document.getElementById('f-pr').value;
   if (!fn) { toast('⚠️ Please enter your first name.'); document.getElementById('f-fn').focus(); return; }
@@ -153,8 +164,9 @@ async function submitEnrol(e) {
   const btn = document.getElementById('enrolSubmitBtn');
   btn.textContent = 'Sending…'; btn.disabled = true;
   const ok = await postToFormspree(ENROL_FORM_ID, {
+    _subject:    `New Enquiry — ${fn} ${ln} | ${pr}`,
     firstName:   fn,
-    lastName:    document.getElementById('f-ln').value.trim(),
+    lastName:    ln,
     phone:       ph,
     ageRange:    document.getElementById('f-age').value,
     gender:      document.getElementById('f-gd').value,
@@ -179,6 +191,7 @@ async function submitContact(e) {
   e.preventDefault();
   const nm = document.getElementById('c-nm').value.trim();
   const ct = document.getElementById('c-ct').value.trim();
+  const sb = document.getElementById('c-sb').value;
   const mg = document.getElementById('c-mg').value.trim();
   if (!nm) { toast('⚠️ Please enter your name.'); document.getElementById('c-nm').focus(); return; }
   if (!ct) { toast('⚠️ Please enter your phone or email.'); document.getElementById('c-ct').focus(); return; }
@@ -186,9 +199,12 @@ async function submitContact(e) {
   const btn = document.getElementById('contactSubmitBtn');
   btn.textContent = 'Sending…'; btn.disabled = true;
   const ok = await postToFormspree(CONTACT_FORM_ID, {
-    name: nm, contact: ct,
-    subject: document.getElementById('c-sb').value,
-    message: mg
+    _subject: `Contact: ${sb || 'General Enquiry'} — ${nm}`,
+    _replyto: ct.includes('@') ? ct : '',   // set reply-to if email given
+    name:     nm,
+    contact:  ct,
+    subject:  sb,
+    message:  mg
   });
   btn.textContent = '📨 Send Message'; btn.disabled = false;
   if (ok) {
@@ -465,3 +481,4 @@ function showConnBanner(online) {
 }
 window.addEventListener('online',  () => showConnBanner(true));
 window.addEventListener('offline', () => showConnBanner(false));
+   

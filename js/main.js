@@ -35,50 +35,6 @@ function showBank() {
   toast('GTBank · Account Name: Highflyer Adult Education Centre · Acct: YOUR_ACCOUNT_NUMBER · Thank you! 💛');
 }
 
-/* ── SUCCESS MESSAGE ── */
-function showSuccess(anchorId, name, isContact) {
-  const anchor = document.getElementById(anchorId);
-  if (!anchor) return;
-
-  // Remove any existing success box first
-  const old = document.getElementById('successBox');
-  if (old) old.remove();
-
-  const box = document.createElement('div');
-  box.id = 'successBox';
-  box.style.cssText = [
-    'display:flex', 'align-items:flex-start', 'gap:14px',
-    'background:#d1fae5', 'border:2px solid #059669',
-    'border-radius:10px', 'padding:18px 20px', 'margin-top:20px',
-    'font-family:var(--body)', 'animation:fadeInUp .4s ease'
-  ].join(';');
-
-  const icon = document.createElement('span');
-  icon.textContent = '✅';
-  icon.style.cssText = 'font-size:1.6rem;line-height:1;flex-shrink:0';
-
-  const text = document.createElement('div');
-  text.style.cssText = 'color:#065f46;line-height:1.55';
-
-  if (isContact) {
-    text.innerHTML = `<strong style="font-size:1.05rem">Message received, ${name}!</strong><br>
-      We will be in touch with you soon. If you need to reach us urgently, call or WhatsApp
-      <strong>+234 906 842 7526</strong>.`;
-  } else {
-    text.innerHTML = `<strong style="font-size:1.05rem">Enquiry received, ${name}!</strong><br>
-      Thank you for reaching out. A member of our team will contact you within 24 hours.
-      If you need to speak to us sooner, call or WhatsApp <strong>+234 906 842 7526</strong>.`;
-  }
-
-  box.appendChild(icon);
-  box.appendChild(text);
-  anchor.insertAdjacentElement('afterend', box);
-  box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-
-  // Auto-remove after 12 seconds
-  setTimeout(() => { if (box.parentNode) box.remove(); }, 12000);
-}
-
 /* ── FAQ ── */
 function toggleFaq(el) { el.classList.toggle('open'); }
 
@@ -217,8 +173,8 @@ async function submitEnrol(e) {
   btn.textContent = '✅ Submit Enquiry — We\'ll Contact You Within 24 Hours';
   btn.disabled = false;
   if (ok) {
+    toast('✅ Enquiry received for ' + fn + '! We will contact you within 24 hours.');
     document.getElementById('enrolForm').reset();
-    showSuccess('enrolSubmitBtn', fn, false);
   } else {
     toast('⚠️ Could not send. Please call us on +234 906 842 7526.');
   }
@@ -248,8 +204,8 @@ async function submitContact(e) {
 
   btn.textContent = '📨 Send Message'; btn.disabled = false;
   if (ok) {
+    toast('✅ Message sent! We will be in touch soon, ' + nm + '.');
     document.getElementById('contactForm').reset();
-    showSuccess('contactSubmitBtn', nm, true);
   } else {
     toast('⚠️ Could not send. Please call us on +234 906 842 7526.');
   }
@@ -519,4 +475,4 @@ function showConnBanner(online) {
 }
 window.addEventListener('online',  () => showConnBanner(true));
 window.addEventListener('offline', () => showConnBanner(false));
-         
+

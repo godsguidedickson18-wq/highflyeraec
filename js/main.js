@@ -157,17 +157,16 @@ async function submitEnrol(e) {
   btn.textContent = 'Sending…'; btn.disabled = true;
 
   const ok = await postToWeb3Forms({
-    subject:     `New Enquiry — ${fn} ${ln} | ${pr}`,
-    firstName:   fn,
-    lastName:    ln,
-    phone:       ph,
-    ageRange:    document.getElementById('f-age').value,
-    gender:      document.getElementById('f-gd').value,
-    programme:   pr,
-    session:     document.getElementById('f-ss').value,
-    centre:      document.getElementById('f-ct').value,
-    sponsorship: document.getElementById('f-sp').value,
-    notes:       document.getElementById('f-nt').value.trim()
+    subject:   `New Enquiry — ${fn} ${ln} | ${pr}`,
+    firstName: fn,
+    lastName:  ln,
+    phone:     ph,
+    ageRange:  document.getElementById('f-age').value,
+    gender:    document.getElementById('f-gd').value,
+    programme: pr,
+    session:   document.getElementById('f-ss').value,
+    centre:    'Rumuogholu Centre, Port Harcourt',
+    notes:     document.getElementById('f-nt').value.trim()
   });
 
   btn.textContent = '✅ Submit Enquiry — We\'ll Contact You Within 24 Hours';
@@ -475,4 +474,4 @@ function showConnBanner(online) {
 }
 window.addEventListener('online',  () => showConnBanner(true));
 window.addEventListener('offline', () => showConnBanner(false));
-                            
+   

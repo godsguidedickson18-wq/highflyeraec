@@ -38,8 +38,9 @@
 
 <link rel="stylesheet" href="css/styles.css"/>
 <link rel="manifest" href="manifest.json"/>
-<link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
-<link rel="icon" href="favicon.ico" type="image/x-icon"/>
+<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+<link rel="icon" href="favicon.ico" sizes="48x48 32x32 16x16" type="image/x-icon"/>
+<link rel="shortcut icon" href="favicon.ico"/>
 <link rel="icon" type="image/png" sizes="32x32" href="icons/icon-32x32.png"/>
 <link rel="icon" type="image/png" sizes="16x16" href="icons/icon-16x16.png"/>
 <link rel="apple-touch-icon" sizes="180x180" href="icons/icon-180x180.png"/>
@@ -116,8 +117,7 @@
           </div>
           <div class="fgroup"><label class="flabel" for="f-pr">Which Programme? *</label><select class="fselect" id="f-pr" name="programme" required><option value="">Select a programme</option><option>Foundation Class (Beginners — never been to school)</option><option>Builder's Class (Intermediate — know some letters/words)</option><option>Expression Class (Advanced — can read basic things)</option><option>I'm not sure — please help me decide</option></select></div>
           <div class="fgroup"><label class="flabel" for="f-ss">Preferred Session</label><select class="fselect" id="f-ss" name="session"><option value="">Select</option><option>Morning Session (8:00–10:30 AM)</option><option>Evening Session (5:30–7:30 PM)</option><option>Saturday Only (9:00 AM–1:00 PM)</option><option>Any available session</option></select></div>
-          <div class="fgroup"><label class="flabel" for="f-ct">Preferred Centre</label><select class="fselect" id="f-ct" name="centre"><option value="">Select</option><option>Rumuogholu Centre, Port Harcourt</option><option>Eleme Centre</option><option>Either — whichever has space</option></select></div>
-          <div class="fgroup"><label class="flabel" for="f-sp">Do You Need Sponsorship Support?</label><select class="fselect" id="f-sp" name="sponsorship"><option value="">Select</option><option>No — I can pay the monthly fee</option><option>Yes — I need help with the fee</option><option>I would like to discuss options</option></select><p class="fhint">We have a sponsorship programme for learners who need fee support. All responses are treated with complete privacy.</p></div>
+          <input type="hidden" id="f-ct" name="centre" value="Rumuogholu Centre, Port Harcourt"/>
           <div class="fgroup"><label class="flabel" for="f-nt">Anything Else? (Optional)</label><textarea class="ftextarea" id="f-nt" name="notes" placeholder="e.g. I work at the market on Thursdays. I have a young baby — can I bring her? I am nervous about starting..."></textarea></div>
           <button type="submit" class="btn btn-gold btn-block" id="enrolSubmitBtn">✅ Submit Enquiry — We'll Contact You Within 24 Hours</button>
         </form>
@@ -134,7 +134,6 @@
         </div>
         <h3 style="font-family:var(--head);font-size:1.2rem;color:var(--blue-dk);margin-bottom:16px">Frequently Asked Questions</h3>
         <div class="faq" onclick="toggleFaq(this)"><div class="faq-q">How much does it cost? <span class="faq-arrow">▼</span></div><div class="faq-a">Our monthly fees are affordable and clearly explained when you enquire. Contact us and we will give you the full breakdown, privately and without pressure.</div></div>
-        <div class="faq" onclick="toggleFaq(this)"><div class="faq-q">Can I get help with the fee? <span class="faq-arrow">▼</span></div><div class="faq-a">Yes. We have a sponsorship programme supported by individuals, churches, businesses, and community partners who pay the tuition of learners who cannot afford it. Your information is completely private.</div></div>
         <div class="faq" onclick="toggleFaq(this)"><div class="faq-q">Am I too old to learn? <span class="faq-arrow">▼</span></div><div class="faq-a">Absolutely not. Our oldest learner was 78 when she enrolled. The brain never fully loses its ability to learn — it just needs the right teacher and the right environment.</div></div>
         <div class="faq" onclick="toggleFaq(this)"><div class="faq-q">Will other people know I'm here? <span class="faq-arrow">▼</span></div><div class="faq-a">No. Your enrolment is completely confidential. We never share names or details of any learner with anyone outside Highflyer. What happens at Highflyer stays at Highflyer.</div></div>
         <div class="faq" onclick="toggleFaq(this)"><div class="faq-q">Can I bring my baby or young child? <span class="faq-arrow">▼</span></div><div class="faq-a">Yes. Many of our female learners are mothers with no childcare options. You are welcome to bring a quiet child. We have a small play area at the Rumuogholu Centre. Please mention it when you enquire.</div></div>
@@ -183,5 +182,5 @@
 <div class="toast" id="toast" role="alert" aria-live="polite"></div>
 <script src="js/main.js"></script>
 </body>
-                                  </html>
-          
+  </html>
+      

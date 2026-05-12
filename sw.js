@@ -8,13 +8,13 @@
  *   Offline      → offline.html   (friendly fallback)
  */
 
-const CACHE_VERSION  = 'v6';
+const CACHE_VERSION  = 'v7';
 const STATIC_CACHE   = `highflyer-static-${CACHE_VERSION}`;
 const DYNAMIC_CACHE  = `highflyer-dynamic-${CACHE_VERSION}`;
 const IMAGE_CACHE    = `highflyer-images-${CACHE_VERSION}`;
 const FONT_CACHE     = `highflyer-fonts-${CACHE_VERSION}`;
 
-const BASE = '/highflyeraec';
+const BASE = '';
 
 /* ── Files pre-cached on install ── */
 const PRECACHE_URLS = [

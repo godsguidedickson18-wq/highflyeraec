@@ -6,7 +6,7 @@
 
   <!-- Home — highest priority, changes weekly as classes open/close -->
   <url>
-    <loc>https://godsguidedickson18-wq.github.io/highflyeraec/</loc>
+    <loc>https://highflyeraec.com.ng/</loc>
     <lastmod>2026-05-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -14,7 +14,7 @@
 
   <!-- Enquire & Enrol — high priority, main conversion page -->
   <url>
-    <loc>https://godsguidedickson18-wq.github.io/highflyeraec/enrol.html</loc>
+    <loc>https://highflyeraec.com.ng/enrol.html</loc>
     <lastmod>2026-05-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
@@ -22,7 +22,7 @@
 
   <!-- Programmes — core service page -->
   <url>
-    <loc>https://godsguidedickson18-wq.github.io/highflyeraec/programmes.html</loc>
+    <loc>https://highflyeraec.com.ng/programmes.html</loc>
     <lastmod>2026-05-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
@@ -30,7 +30,7 @@
 
   <!-- About Us -->
   <url>
-    <loc>https://godsguidedickson18-wq.github.io/highflyeraec/about.html</loc>
+    <loc>https://highflyeraec.com.ng/about.html</loc>
     <lastmod>2026-05-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
@@ -38,7 +38,7 @@
 
   <!-- Learner Stories -->
   <url>
-    <loc>https://godsguidedickson18-wq.github.io/highflyeraec/stories.html</loc>
+    <loc>https://highflyeraec.com.ng/stories.html</loc>
     <lastmod>2026-05-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
@@ -46,7 +46,7 @@
 
   <!-- News & Resources — updated periodically -->
   <url>
-    <loc>https://godsguidedickson18-wq.github.io/highflyeraec/news.html</loc>
+    <loc>https://highflyeraec.com.ng/news.html</loc>
     <lastmod>2026-05-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
@@ -54,7 +54,7 @@
 
   <!-- Get Involved -->
   <url>
-    <loc>https://godsguidedickson18-wq.github.io/highflyeraec/involve.html</loc>
+    <loc>https://highflyeraec.com.ng/involve.html</loc>
     <lastmod>2026-05-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
@@ -62,7 +62,7 @@
 
   <!-- Contact -->
   <url>
-    <loc>https://godsguidedickson18-wq.github.io/highflyeraec/contact.html</loc>
+    <loc>https://highflyeraec.com.ng/contact.html</loc>
     <lastmod>2026-05-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.70</priority>
@@ -70,7 +70,7 @@
 
   <!-- Literacy Games -->
   <url>
-    <loc>https://godsguidedickson18-wq.github.io/highflyeraec/games.html</loc>
+    <loc>https://highflyeraec.com.ng/games.html</loc>
     <lastmod>2026-05-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>

@@ -429,7 +429,7 @@ window.addEventListener('load', () => {
 /* ── SERVICE WORKER REGISTRATION ── */
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/highflyeraec/sw.js', { scope: '/highflyeraec/' })
+    navigator.serviceWorker.register('/sw.js', { scope: '/' })
       .then(reg => {
         console.log('[Highflyer] Service worker registered. Scope:', reg.scope);
         reg.addEventListener('updatefound', () => {

@@ -8,7 +8,7 @@
  *   Offline      → offline.html   (friendly fallback)
  */
 
-const CACHE_VERSION  = 'v7';
+const CACHE_VERSION  = 'v8';
 const STATIC_CACHE   = `highflyer-static-${CACHE_VERSION}`;
 const DYNAMIC_CACHE  = `highflyer-dynamic-${CACHE_VERSION}`;
 const IMAGE_CACHE    = `highflyer-images-${CACHE_VERSION}`;
